@@ -145,20 +145,20 @@
             
         </div>
 
-        @if ($metodoPago == 'Efectivo')
+        
             {{-- boton whatsapp --}}
             <div class="container cont-enviar d-flex justify-content-center align-items-center mt-3">
                 
                 <button wire:click="enviarPedido" class="boton__whatsapp text-center shadow rounded">ENVIAR PEDIDO</button> 
             </div> 
-        @endif
+        
 
-        @if ($metodoPago == 'Mercado pago')
-            {{-- boton whatsapp --}}
+        {{-- @if ($metodoPago == 'Mercado pago')
+            
 
             <a href="/pago">CONTINUAR</a>
             
-        @endif
+        @endif --}}
       
            
 

@@ -24,6 +24,9 @@ class Carrito extends Component
 
         $rules = $this->rules;
 
+        
+        $ruta = '';
+
         $this->validate();
 
         if($this->metodoEnvio == "Envio a domicilio"){
@@ -54,15 +57,25 @@ class Carrito extends Component
 
 
 
-
-        redirect('https://api.whatsapp.com/send?phone=5491141774133&text=|----Pedido----|%0A%0A'
+        if($this->metodoPago == "Efectivo".'%20'.'%0A'.'Abona con: '.$this->abono ){
+            /* redirect('https://api.whatsapp.com/send?phone=5491141774133&text=|----Pedido----|%0A%0A'
                 .'Nombre: '.$this->nombre.'%0A'
                 .'Metodo de envio: '.$this->metodoEnvio.'%0A'
                 .'Metodo de pago: '.$this->metodoPago.'%0A%0A'
-                .'Detalle del pedido:'.'%0A'.$pedidoFinal);
-        //return dd($pedidoFinal);
+                .'Detalle del pedido:'.'%0A'.$pedidoFinal); */
+        $ruta = 'https://mercadolibre.com.ar';
+
+        
+            
+        } else if ($this->metodoPago == "Mercado pago") {
+            $ruta = 'https://mercadopago.com.ar';
+        }
+
+        redirect($ruta);
 
         Cart::destroy(); 
+
+ 
     }
 
     public function delete($rowId){
