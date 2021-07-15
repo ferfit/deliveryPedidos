@@ -1,4 +1,23 @@
 <div class="">
+
+    <!-- @php 
+        // SDK de Mercado Pago
+        require base_path ('vendor/autoload.php');
+        // Agrega credenciales
+        MercadoPago\SDK::setAccessToken(config('services.mercadopago.token'));
+
+        // Crea un objeto de preferencia
+        $preference = new MercadoPago\Preference();
+
+        // Crea un ítem en la preferencia
+        $item = new MercadoPago\Item();
+        $item->title = 'Mi producto';
+        $item->quantity = 1;
+        $item->unit_price = 75.56;
+        $preference->items = array($item);
+        $preference->save();
+    @endphp -->
+
         {{--------------------- Pedido -------------------------
         
         ------------------------------------------------------}}
@@ -125,12 +144,25 @@
             @enderror
             
         </div>
-      
-        {{-- boton whatsapp --}}
-        <div class="container cont-enviar d-flex justify-content-center align-items-center mt-3">
+
+        @if ($metodoPago == 'Efectivo')
+            {{-- boton whatsapp --}}
+            <div class="container cont-enviar d-flex justify-content-center align-items-center mt-3">
+                
+                <button wire:click="enviarPedido" class="boton__whatsapp text-center shadow rounded">ENVIAR PEDIDO</button> 
+            </div> 
+        @endif
+
+        @if ($metodoPago == 'Mercado pago')
+            {{-- boton whatsapp --}}
+
+            <a href="/pago">CONTINUAR</a>
             
-            <button wire:click="enviarPedido" class="boton__whatsapp text-center shadow rounded">ENVIAR PEDIDO</button> 
-        </div>    
+        @endif
+      
+           
+
+        
     
         {{-- footer --}}
         <footer class="footer d-flex justify-content-center align-items-center mt-5">
@@ -140,4 +172,26 @@
               <p class="text-center">TuProyectoWeb |</p>
             </div>
         </footer>
-                 
+
+        
+        <!-- <script src="https://sdk.mercadopago.com/js/v2"></script>
+        <script>
+        // Agrega credenciales de SDK
+        const mp = new MercadoPago("{{config('services.mercadopago.token')}}", {
+                locale: 'es-AR'
+        });
+
+        // Inicializa el checkout
+        mp.checkout({
+            preference: {
+                id: '{{ $preference->id}}'
+            },
+            render: {
+                    container: '.cho-container', // Indica dónde se mostrará el botón de pago
+                    label: 'Pagar', // Cambia el texto del botón de pago (opcional)
+            }
+        });
+        </script> -->
+
+
+</div>

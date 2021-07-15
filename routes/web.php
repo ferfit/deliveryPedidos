@@ -40,3 +40,15 @@ Route::get('/storage-link',function(){
 
     return 'directorio creado correctamente.';
 });
+
+Route::get('/pago',function(){
+    
+    return view('pago');
+    
+})->name('pago');
+
+Route::get('/pedido-aprobado',function(){
+    \Cart::destroy();
+    return view('pedido-aprobado');
+    
+})->name('aprobado');
