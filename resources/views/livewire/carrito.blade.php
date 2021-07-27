@@ -78,7 +78,7 @@
 
         <div class="container d-flex flex-column justify-content-center align-items-center mt-5">
             <h2 id="ingresaNombre" class="text-center">Ingresa tu nombre</h2>
-            <input wire:model="nombre" name="nombre" type="text" class="nombre mt-2 form-control w-50" id="valor" value="">
+            <input wire:model.defer="nombre" name="nombre" type="text" class="nombre mt-2 form-control w-50" id="valor" value="">
             @error('nombre')       
             <span class="invalid-feedback d-flex flex-column justify-content-center align-items-center" role="alert">
                 {{ $message }}
@@ -106,7 +106,7 @@
             
             
             @if ($metodoEnvio == 'Envio a domicilio')
-                <input wire:model="direccion" type="text" name="direccion" class="direccion mb-4 w-50 mt-3 form-control" placeholder="Escribe tu dirección" id="direccion">
+                <input wire:model.defer="direccion" type="text" name="direccion" class="direccion mb-4 w-50 mt-3 form-control" placeholder="Escribe tu dirección" id="direccion">
             @endif
 
             @error('direccion')       
@@ -134,7 +134,7 @@
             @enderror
 
             @if ($metodoPago == 'Efectivo')
-                <input wire:model="abono" type="text" name="abono" class="direccion mb-4 w-50 mt-3 form-control" placeholder="Abono con $..." id="abono">
+                <input wire:model.defer="abono" type="text" name="abono" class="direccion mb-4 w-50 mt-3 form-control" placeholder="Abono con $..." id="abono">
             @endif
 
             @error('abono')       

@@ -89,6 +89,32 @@
   cursor: pointer;
 }
 
+//vista agradecimento
+.gracias{
+  background-color: #fff;
+  height:95vh; 
+}
+.gracias_cont-logo{
+  background-color: #BF2B2B;
+  height:200px; 
+}
+.gracias__logo{
+  width: 50%;
+}
+.gracias__titulo{
+  color: #BF2B2B;
+}
+
+//btn mercadopago
+.mercadopago-button{
+  background-color: red !important;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px !important;
+  margin-top: auto;
+}
+
 
 @media (min-width: 540px) {
     
@@ -111,7 +137,15 @@
     .dropdown-menu{
       left: -25px !important;
     }
-  
+
+    //vista agradecimento
+    .gracias_cont-logo{
+      height:300px; 
+    }
+    .gracias__logo{
+      width: 30%;
+    }
+
     
   }
   
@@ -133,6 +167,18 @@
     .mostrarCarrito {
         transform: translateX(-25px);
     }
+
+
+    //vista agradecimento
+    .gracias{
+      height:95vh; 
+    }
+    .gracias_cont-logo{
+      height:400px; 
+    }
+    .gracias__logo{
+      width: 30%;
+    }
     
     
   }
@@ -141,5 +187,14 @@
     .dropdown-menu{
       left: -60px !important;
     }
+
+    //vista agradecimento
+    .gracias{
+      height:85vh; 
+    }
+    .gracias__textos{
+      margin-top: 30px;
+    }
+    
     
   }

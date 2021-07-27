@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Carrito;
+use App\Models\Orden;
+use Illuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,10 +27,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('carrito', [App\Http\Controllers\InicioController::class, 'carrito'] )->name('carrito');
 
-Route::get('prueba', function () {
+/* Route::get('prueba', function () {
     \Cart::destroy();
-});
+}); */
 
+// storage link
 Route::get('/storage-link',function(){
     
     if(file_exists(public_path('storage'))){
@@ -41,14 +45,26 @@ Route::get('/storage-link',function(){
     return 'directorio creado correctamente.';
 });
 
-Route::get('/pago',function(){
+//-----------------------------------------------------------------------//
+//Rutas de metodos de pago
+//-----------------------------------------------------------------------//
+// Efectivo
+Route::get('orden/{orden}', function (Orden $orden) {
     
-    return view('pago');
-    
-})->name('pago');
+    return view('orden', compact('orden'));
 
-Route::get('/pedido-aprobado',function(){
-    \Cart::destroy();
-    return view('pedido-aprobado');
-    
+})->name('orden');
+
+//Mercadopago
+Route::get('/mercadopago/{orden}',function(Orden $orden){
+    return view('pago',compact('orden'));
+})->name('pago'); 
+
+//Redirección despues de pagar con MP
+Route::get('aprobado', function () {
+    return view('aprobado');
 })->name('aprobado');
+
+
+
+

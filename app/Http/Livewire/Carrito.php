@@ -4,29 +4,31 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use App\Models\Orden;
 
 class Carrito extends Component
 {
+    //variables
     public $nombre,$metodoEnvio,$direccion,$metodoPago,$abono; 
-
+    //oyentes
     protected $listeners=['render'];
-
+    //reglas
     protected $rules = [
         'nombre' => 'required',
         'metodoEnvio' => 'required',
         'metodoPago' => 'required'
-        
-        
     ];
 
 
+    //Función que se ejecuta al hacer click en "enviar pedido"
     public function enviarPedido(){
+        //Variables
+        $ruta = 'orden';
 
+        //Reglas de validación
         $rules = $this->rules;
-
         
-        $ruta = '';
-
+        
         $this->validate();
 
         if($this->metodoEnvio == "Envio a domicilio"){
@@ -39,42 +41,30 @@ class Carrito extends Component
         $this->validate($rules);
 
 
-        $pedido = '';
-        $total = "TOTAL: $" .Cart::subtotal();
-
-        foreach(Cart::content() as $item){
-            $pedido.=$item->name." Cantidad:".$item->qty." Precio: $".$item->price*$item->qty."%0A";
+        //Configuración del direccionamiento segun metodo de pago
+        if ($this->metodoPago == "Mercado pago") {
+            $ruta = 'pago';
         }
 
-        $pedidoFinal = $pedido."%0A".$total;
+        //Creación de la orden
+        $orden = new Orden();
 
-        if($this->direccion){
-            $this->metodoEnvio= $this->metodoEnvio.'%20'.'%0A'.'Direccion: '.$this->direccion;
-        }
-        if($this->abono){
-            $this->metodoPago= $this->metodoPago.'%20'.'%0A'.'Abona con: '.$this->abono;
-        }
+        $orden->nombre = $this->nombre;
+        $orden->metodoEnvio = $this->metodoEnvio;
+        $orden->direccion = $this->direccion;
+        $orden->metodoPago = $this->metodoPago;
+        $orden->abono = $this->abono;
+        $orden->estado = Orden::PENDIENTE;
+        $orden->listaPedido = Cart::content();
+        $orden->total = 500;
 
+        $orden->save();
 
-
-        if($this->metodoPago == "Efectivo".'%20'.'%0A'.'Abona con: '.$this->abono ){
-            /* redirect('https://api.whatsapp.com/send?phone=5491141774133&text=|----Pedido----|%0A%0A'
-                .'Nombre: '.$this->nombre.'%0A'
-                .'Metodo de envio: '.$this->metodoEnvio.'%0A'
-                .'Metodo de pago: '.$this->metodoPago.'%0A%0A'
-                .'Detalle del pedido:'.'%0A'.$pedidoFinal); */
-        $ruta = 'https://mercadolibre.com.ar';
-
-        
-            
-        } else if ($this->metodoPago == "Mercado pago") {
-            $ruta = 'https://mercadopago.com.ar';
-        }
-
-        redirect($ruta);
-
+        //Eliminación del carrito
         Cart::destroy(); 
 
+        //Redirección
+        return redirect()->route($ruta,$orden);
  
     }
 
