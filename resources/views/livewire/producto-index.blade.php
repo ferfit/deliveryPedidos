@@ -19,10 +19,6 @@
 
 
         {{$tamaño}}
-
-
-        
-
         
 
         <table class="table bg-white mt-2 shadow">

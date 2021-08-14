@@ -254,6 +254,13 @@ return [
             'active' => ['admin/productos*'] 
             
         ],
+        [
+            'text'        => 'Usuarios',
+            'route'         => 'admin.usuarios.index',
+            'icon'        => 'fas fa-users',
+            'active' => ['admin/usuarios*'] 
+            
+        ],
         
     ],
 
