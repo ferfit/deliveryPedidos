@@ -16,11 +16,11 @@
 @section('content')
     
     <div class="container mx-auto">
-        <table class="table table-bordered table bg-white shadow">
+        <table class="table  table bg-white shadow">
             <thead>
                 <tr>
                     <th>Nombre</th>
-                    <th>Acciones</th>
+                    <th style="width: 200px">Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,7 +28,7 @@
                 <tr>
                     <td>{{ $categoria->nombre }}</td>
                     <td>
-                        <div class="row">
+                        <div class="row mx-auto">
                             <a href="{{ route('admin.categorias.edit', $categoria )}}" class="btn btn-primary mr-2">Editar</a>
                         
                             <form action="{{ route('admin.categorias.destroy', $categoria) }}" method="POST" >

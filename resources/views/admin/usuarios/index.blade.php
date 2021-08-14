@@ -8,7 +8,7 @@
     </div>
 
     <div class="container mt-2 ">
-        <a href="{{ route('admin.productos.create' )}}" class="btn btn-success shadow">Crear usuarios</a>
+        <a href="{{ route('admin.usuarios.create' )}}" class="btn btn-success shadow">Crear usuarios</a>
     </div>
     
 @stop

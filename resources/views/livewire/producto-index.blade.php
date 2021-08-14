@@ -37,7 +37,7 @@
                         <td >{{$producto->descripcion}}</td>
                         <td class="d-none d-lg-block">${{$producto->precio}}</td>
                         <td>
-                            <div class="row">
+                            <div class="row mx-auto">
                                 <a href="{{ route ('admin.productos.edit', $producto)}}" class="btn btn-primary mr-2 mb-1 shadow">Editar</a>
                             
                                 <form action="{{ route ('admin.productos.destroy', $producto)}}" method="POST" >

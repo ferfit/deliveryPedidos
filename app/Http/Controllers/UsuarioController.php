@@ -2,6 +2,7 @@
 
 
 namespace App\Http\Controllers;
+use app\Models\User;
 
 use Illuminate\Http\Request;
 
@@ -24,7 +25,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.usuarios.create');
     }
 
     /**
@@ -35,7 +36,21 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $data = request()->validate([
+            'nombre'=>'required',
+            'email'=>'required',
+            'password'=>'required'
+        ]);
+
+
+        $usuario = User::create([
+            'name' => $data['nombre'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password'])
+        ]);
+
+        return redirect()->route('admin.usuarios.index');
     }
 
     /**
