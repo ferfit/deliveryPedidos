@@ -31,6 +31,10 @@
             </tbody>
         </table>
 
+        <div class=" mx-auto">
+            {{$usuarios->links()}}
+        </div>
+
     </div>
 
 </div>

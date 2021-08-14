@@ -20,5 +20,35 @@ class UsuarioSeeder extends Seeder
             'email'=>'correo@correo.com',
             'password'=>Hash::make('12345678')
         ]);
+        $user = User::create([
+            'name'=>'Fernando Pereyra',
+            'email'=>'correo8@correo.com',
+            'password'=>Hash::make('12345678')
+        ]);
+        $user = User::create([
+            'name'=>'Fernando Pereyra',
+            'email'=>'corre2o@correo.com',
+            'password'=>Hash::make('12345678')
+        ]);
+        $user = User::create([
+            'name'=>'Fernando Pereyra',
+            'email'=>'correo3@correo.com',
+            'password'=>Hash::make('12345678')
+        ]);
+        $user = User::create([
+            'name'=>'Fernando Pereyra',
+            'email'=>'correo4@correo.com',
+            'password'=>Hash::make('12345678')
+        ]);
+        $user = User::create([
+            'name'=>'Fernando Pereyra',
+            'email'=>'correo5@correo.com',
+            'password'=>Hash::make('12345678')
+        ]);
+        $user = User::create([
+            'name'=>'Fernando Pereyra',
+            'email'=>'correo6@correo.com',
+            'password'=>Hash::make('12345678')
+        ]);
     }
 }
