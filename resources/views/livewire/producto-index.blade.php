@@ -1,7 +1,7 @@
-<div class="py-5">
+<div class="">
     {{-- Care about people's approval and you will be their prisoner. --}}
     <div class="container ">
-        
+        <hr>
         <div class="row  py-2 rounded">
             <button class="btn btn-info mx-2 shadow" wire:click = "resetFilter">Todos</button>
             <div class="dropdown shadow">
@@ -16,9 +16,6 @@
                 </div>
             </div>
         </div>
-
-
-        {{$tamaño}}
         
 
         <table class="table bg-white mt-2 shadow">

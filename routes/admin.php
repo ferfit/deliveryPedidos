@@ -15,3 +15,6 @@ Route::resource('productos', ProductoController::class)->names('productos');
 
 Route::resource('usuarios', UsuarioController::class)->names('usuarios'); 
 
+Route::post('admin/productos/importar/', [ProductoController::class, 'import'])->name('importar');
+
+

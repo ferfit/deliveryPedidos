@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Producto;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
+use App\Imports\ProductosImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProductoController extends Controller
 {
@@ -118,4 +120,19 @@ class ProductoController extends Controller
 
         return redirect()->route('admin.productos.index');  
     }
+
+    public function import() 
+    {
+        if(request()->file('productos')){
+            
+        Excel::import(new ProductosImport, request()->file('productos'));
+        
+        return redirect()->route('admin.productos.index');
+
+        } else {
+            return redirect()->route('admin.productos.index')->with('error', 'Debe seleccionar un archivo!');
+        }
+
+        
+    } 
 }
