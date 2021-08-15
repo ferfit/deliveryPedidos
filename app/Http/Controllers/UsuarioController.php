@@ -3,7 +3,7 @@
 
 namespace App\Http\Controllers;
 use app\Models\User;
-
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
@@ -47,7 +47,8 @@ class UsuarioController extends Controller
         $usuario = User::create([
             'name' => $data['nombre'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password'])
+            'password' => Crypt::encryptString($data['password'])
+            
         ]);
 
         return redirect()->route('admin.usuarios.index');
@@ -61,7 +62,7 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -70,9 +71,11 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $usuario)
     {
-        //
+        $clave = Crypt::decryptString($usuario->password);
+
+        return view('admin.usuarios.edit',compact('usuario','clave'));
     }
 
     /**
@@ -82,9 +85,23 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $usuario)
     {
-        //
+        
+        $data = request()->validate([
+            'nombre'=>'required',
+            'email'=>'required',
+            'password'=>'required'
+        ]);
+
+        //asignamos los valores
+        $usuario->name = $data['nombre'];
+        $usuario->email= $data['email'];
+        $usuario->password = Crypt::encryptString($data['password']);
+        
+        $usuario->save();
+
+        return redirect()->route('admin.usuarios.index');  
     }
 
     /**
@@ -93,8 +110,10 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $usuario)
     {
-        //
+        $usuario->delete();
+
+        return redirect()->route('admin.usuarios.index');  
     }
 }
