@@ -14,44 +14,10 @@
 @stop
 
 @section('content')
-    
-    <div class="container mx-auto">
-        <table class="table  table bg-white shadow">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th style="width: 200px">Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($categorias as $categoria)
-                <tr>
-                    <td>{{ $categoria->nombre }}</td>
-                    <td>
-                        <div class="row mx-auto">
-                            <a href="{{ route('admin.categorias.edit', $categoria )}}" class="btn btn-primary mr-2">Editar</a>
-                        
-                            <form action="{{ route('admin.categorias.destroy', $categoria) }}" method="POST" >
-                                @csrf
-                                @method('DELETE')
-                                <input type="submit" class="btn btn-danger d-inline mr-1  "
-                                    value="Eliminar">
-                            </form>
-                        </div>
-                        
-                    </td>
-                </tr>  
-                @endforeach
-                
-            </tbody>
-        </table>
-    </div>
 
-    @if($error = Session::get('error'))
-    <div class="alert alert-danger" role="alert">
-        {{$error}}
-    </div>
-    @endif
+    @livewire('categoria-index')
+    
+    
 
     
 @stop

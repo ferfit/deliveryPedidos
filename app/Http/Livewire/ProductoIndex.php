@@ -19,6 +19,7 @@ class ProductoIndex extends Component
     public $tamaño;
 
     public $search;
+    protected $queryString = ['search'];
 
     public function updatingSearch()
     {

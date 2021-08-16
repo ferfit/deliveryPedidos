@@ -81,9 +81,8 @@
                 @foreach ($categoria->productos as $producto)      
                     {{-- Contenedor Producto --}}
                     <div   class="col-5 col-md-2 bg-white menu-item mx-1 mx-md-2 my-3 shadow p-3 rounded d-flex flex-column justify-content-center align-items-center">
-                        <img src="/storage/{{ $producto->imagen}}" alt="" class="w-75 rounded-circle d-block mx-auto ">
+                       
                         <h3 class="nombre_producto mt-2 text-center" data_titulo="{{$producto->titulo}}" >{{$producto->nombre}}</h3>
-                        <p class="descripcion_producto m-0 text-center">{{ Str::limit ( strip_tags ( $producto->descripcion ), 100 ) }}</p>
                         <p class="text-center mt-2"><strong>$ <span class="text-center mx-auto">{{$producto->precio}}</span></strong></p>
 
 

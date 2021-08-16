@@ -8,20 +8,31 @@
 </div>
 
 <div class="container mt-2 ">
-    <a href="{{ route('admin.productos.create') }}" class="btn btn-success shadow">Crear producto</a>
-    <br><br>
-    <hr>
-    <form method="POST" action="{{ route('admin.importar') }}" enctype="multipart/form-data" novalidate>
-        @csrf
-
-
-        <input type="file" name="productos" id="">
-
-        <div class="form-group ">
-            <input type="submit" class="btn btn-success shadow rounded mt-2" value="Importación masiva">
+    <div class="row">
+        <div class="mr-4 border-right p-3">
+            <a href="{{ route('admin.productos.create') }}" class="btn btn-success shadow">Crear producto</a>
         </div>
+        <div class="p-3">
+            <form method="POST" action="{{ route('admin.importar') }}" enctype="multipart/form-data" novalidate>
+                @csrf
 
-    </form>
+                <div class="row">
+                    <div class="form-group mr-2 ">
+                        <input type="submit" class="btn btn-success shadow rounded " value="Importación masiva">  
+                    </div>
+                    <div>
+                        <input type="file" name="productos" id="" class="form-control ">
+                    </div>
+                </div>
+                
+                
+
+            </form>
+        </div>
+    </div>
+
+    
+
 </div>
 
 @stop
