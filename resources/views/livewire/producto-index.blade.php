@@ -31,7 +31,7 @@
                 @foreach($productos as $producto)
                     <tr>
                         <td>{{$producto->nombre}}</td>
-                        <td >{{$producto->descripcion}}</td>
+                        <td >{{$producto->categoria->nombre}}</td>
                         <td class="d-none d-lg-block">${{$producto->precio}}</td>
                         <td>
                             <div class="row mx-auto">

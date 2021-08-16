@@ -29,7 +29,7 @@ class ProductoIndex extends Component
         $productos = Producto::
                     category($this->category_id)
                     ->orderBy('id', 'desc')
-                    ->paginate(7)
+                    ->paginate(100)
                     ;
 
         return view('livewire.producto-index', compact('categorias','productos'));
