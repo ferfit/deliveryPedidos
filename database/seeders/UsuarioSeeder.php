@@ -18,6 +18,12 @@ class UsuarioSeeder extends Seeder
     {
         $user = User::create([
             'name'=>'Fernando Pereyra',
+            'email'=>'fer@correo.com',
+            'password'=>hash::make('12345678')
+                       
+        ]);
+        $user = User::create([
+            'name'=>'Fernando Pereyra',
             'email'=>'correo@correo.com',
             'password'=>Crypt::encryptString('12345678')
                        
