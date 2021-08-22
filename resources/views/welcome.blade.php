@@ -73,13 +73,13 @@
             
         ------------------------------------------------------}}
         <div class="container"  id="cont-producto">
-            @foreach($categorias as $categoria)
+            {{-- @foreach($categorias as $categoria)
                 <h2 class=" text-center text-danger mt-5">{{$categoria->nombre}}</h2>
                 <br>
                 
                 <div class="row justify-content-center">
                 @foreach ($categoria->productos as $producto)      
-                    {{-- Contenedor Producto --}}
+                    
                     <div   class="col-5 col-md-2 bg-white menu-item mx-1 mx-md-2 my-3 shadow p-3 rounded d-flex flex-column justify-content-center align-items-center">
                        
                         <h3 class="nombre_producto mt-2 text-center" data_titulo="{{$producto->titulo}}" >{{$producto->nombre}}</h3>
@@ -90,7 +90,9 @@
                     </div>
                 @endforeach
                 </div>
-            @endforeach
+            @endforeach --}}
+
+            @livewire('index-producto')
 
            
         </div>
