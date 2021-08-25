@@ -24,9 +24,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('carrito', [App\Http\Controllers\InicioController::class, 'carrito'] )->name('carrito');
 
-Route::get('prueba', function () {
-    \Cart::destroy();
-});
 
 Route::get('/storage-link',function(){
     

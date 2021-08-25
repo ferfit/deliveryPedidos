@@ -2,8 +2,8 @@
     <div class="row  py-2 rounded">
         <button class="btn btn-dark mx-2 shadow" wire:click="resetFilter">Todos</button>
         <div class="dropdown shadow">
-            <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
                 Categorias
             </button>
 
@@ -16,13 +16,12 @@
         </div>
     </div>
 
-    <input wire:model="search" class="form-control mt-3 w-50" type="search"
-        placeholder="Buscar producto por nombre...">
+    <input wire:model="search" class="form-control mt-3 w-50" type="search" placeholder="Buscar producto por nombre...">
     <table class="table bg-white mt-2 shadow">
         <thead>
             <tr>
                 <th>Producto</th>
-                <th >Categoria</th>
+                <th>Categoria</th>
                 <th class="d-none d-lg-block">Precio</th>
                 <th></th>
             </tr>
@@ -35,16 +34,69 @@
                     <td>{{ $producto->categoria->nombre }}</td>
                     <td>${{ $producto->precio }}</td>
                     <td>
-                        <div class="row mx-auto">
-                            @livewire('cantidad-producto',['producto' => $producto], key($producto->id))
+                        <div class="row ">
+
+                            {{-- <div class="d-flex justify-content-center align-items-center">
+                                <input type="number" wire:model="qty">
+                            </div>
+                        
+                            <div class="d-flex justify-content-center align-items-center mt-2">
+                                <button type="button" class="btn btn-danger font-bold"
+                                wire:click="agregarCarrito({{$producto}})"
+                                
+                                wire:loading.attr="disabled"
+                                wire:target="agregarCarrito()">AGREGAR</button>
+                            </div> --}}
+
+                            {{-- <button type="button" class="btn btn-danger font-bold" wire:click="$set('open',true)"
+                                wire:loading.attr="disabled" wire:target="agregarCarrito()">AGREGAR
+                            </button> --}}
+
+
+                            <!-- Button trigger modal -->
+                            <button type="button"
+                                class="btn btn-danger shadow d-flex justify-content-center align-items-center"
+                                data-toggle="modal" data-target="#exampleModal">
+                                <i class='bx bx-plus'></i>
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <div class="d-flex justify-content-center align-items-center">
+                                                <input type="number" class="form-control border-secondary" wire:model.defer="qty">
+                                            </div>
+
+                                            <div class="d-flex justify-content-center align-items-center mt-2">
+
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer mx-auto">
+                                            <button type="button" class="btn btn-danger font-bold"
+                                                wire:click="agregarCarrito({{ $producto }})"
+                                                wire:loading.attr="disabled" wire:target="agregarCarrito()"
+                                                data-dismiss="modal">AGREGAR</button>
+                                            <button type="button" class="btn btn-dark"
+                                                data-dismiss="modal">SALIR</button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </td>
                 </tr>
             @endforeach
 
+
+
         </tbody>
     </table>
     <div class=" mx-auto">
-            {{ $productos->onEachSide(0)->links() }}
-        </div>
+        {{ $productos->onEachSide(0)->links() }}
+    </div>
 </div>

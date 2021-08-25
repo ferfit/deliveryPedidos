@@ -55,8 +55,8 @@
                 </div>
                 
             @endif
-            <div class="d-flex justify-content-center align-items-center">
-                <img src="img/logo.png" alt="">
+            <div class="d-flex justify-content-center align-items-center" style="margin-top: 170px">
+                <img src="img/logo.webp" alt="">
             </div>
             
         </div>

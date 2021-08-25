@@ -47,7 +47,7 @@
                 </div>
 
                 <div class="mt-3">
-                    <a type="button" href="" class="btn btn-danger carrito__ver-carrito mx-auto font-bold d-block w-50 mt-2 shadow rounded"
+                    <a type="button" wire:click="destroy" class="btn btn-danger carrito__ver-carrito mx-auto font-bold d-block w-50 mt-2 shadow rounded"
                     >BORRAR CARRITO</a>
                     <a type="button" href="{{ route('inicio')}}" class="btn carrito__ver-carrito mx-auto font-bold d-block w-50 mt-2 shadow rounded"
                     >VOLVER</a>                    

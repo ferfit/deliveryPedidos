@@ -52,5 +52,6 @@ class ProductoIndex extends Component
 
     public function resetFilter(){
         $this->reset(['category_id']);
+        $this->reset(['search']);
     }
 }

@@ -70,6 +70,10 @@ class Carrito extends Component
 
         $this->emitTo('dropdown-cart','render');
     }
+
+    public function destroy(){
+        Cart::destroy();
+    }
     
     public function render()
     {

@@ -11,6 +11,7 @@ class CantidadProducto extends Component
 {
     public $producto;
 
+   /*  public $qty = "1"; */
     public $qty = "1";
 
     public $options =[];

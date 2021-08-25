@@ -1,6 +1,5 @@
 <div class="">
     {{-- Care about people's approval and you will be their prisoner. --}}
-    holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
     <div class="container ">
         <hr>
         <div class="row  py-2 rounded">

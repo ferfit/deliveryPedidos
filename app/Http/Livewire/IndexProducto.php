@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 use App\Models\Producto;
 use App\Models\Categoria;
 use Livewire\WithPagination;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 use Livewire\Component;
 
@@ -13,11 +14,18 @@ class IndexProducto extends Component
 
     public $category_id;
 
+    public $qty = "1";
+
+    public $options =[];
+
+
     protected $paginationTheme = "bootstrap";
 
     public $tamaño;
 
     public $search;
+
+
     protected $queryString = ['search'];
 
     public function updatingSearch()
@@ -26,8 +34,6 @@ class IndexProducto extends Component
     }
 
     
-
-
 
     public function render()
     {
@@ -49,7 +55,30 @@ class IndexProducto extends Component
         ],compact('categorias'));
     }
 
+    //Agregar item al carrito
+    public function agregarCarrito(Producto $producto){
+
+
+        Cart::add([
+            'id' => $producto->id, 
+            'name' => $producto->nombre, 
+            'qty' => $this->qty , 
+            'price' => $producto->precio, 
+            'weight' => 550,
+            'options' => $this->options
+        ]);
+ 
+        $this->emitTo('dropdown-cart','render');
+        $this->reset('qty');
+
+        
+
+    }
+
     public function resetFilter(){
+        $this->reset(['search']);
+        $this->resetPage();
         $this->reset(['category_id']);
+        
     }
 }
