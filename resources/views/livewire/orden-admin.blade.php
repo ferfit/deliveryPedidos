@@ -1,0 +1,59 @@
+<div>
+    <div>
+        <div class="container mx-auto">
+            <input wire:model="search" class="form-control mt-3 w-50" type="search"
+                placeholder="Buscar orden por...">
+            <table class="table  table bg-white shadow mt-2">
+                <thead>
+                    <tr>
+                        <th>Nro</th>
+                        <th>Nombre</th>
+                        <th>Total</th>
+                        <th>Estado</th>
+                        <th style="width: 200px">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($ordenes as $orden)
+                    <tr>
+                        <td>{{ $orden->id }}</td>
+                        <td>{{ $orden->nombre }}</td>
+                        <td>${{ $orden->total }}</td>
+                        <td>
+                            @switch( $orden->estado )
+                                @case(1)
+                                    <small class="badge badge-warning"> Pendiente</small>
+                                    @break
+                                @case(2)
+                                    <small class="badge badge-primary"> En proceso</small>
+                                    @break
+                                @case(3)
+                                    <small class="badge badge-success"> Enviado</small>
+                                    @break
+                                @case(0)
+                                    <small class="badge badge-danger"> Cancelado</small>
+                                    @break
+                                @default
+                                    
+                            @endswitch
+                            
+                        </td>
+                        <td>
+                            <div class="row mx-auto">
+                                <a href="{{ route('admin.ordenes.show', $orden )}}" class="btn btn-warning mr-2">Ver</a>
+                                <a href="{{ route('admin.ordenes.edit', $orden )}}" class="btn btn-primary mr-2">Editar</a>
+                            </div>
+                            
+                        </td>
+                    </tr>  
+                    @endforeach
+                    
+                </tbody>
+            </table>
+            <div class=" mx-auto">
+            </div>
+        </div>
+    
+    </div>
+    
+</div>

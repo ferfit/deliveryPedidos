@@ -255,6 +255,13 @@ return [
             
         ],
         [
+            'text'        => 'Ordenes',
+            'route'         => 'admin.ordenes.index',
+            'icon'        => 'fas fa-tshirt',
+            'active' => ['admin/ordenes*'] 
+            
+        ],
+        [
             'text'        => 'Usuarios',
             'route'         => 'admin.usuarios.index',
             'icon'        => 'fas fa-users',
