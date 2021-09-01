@@ -40,8 +40,8 @@
                         </td>
                         <td>
                             <div class="row mx-auto">
-                                <a href="{{ route('admin.ordenes.show', $orden )}}" class="btn btn-warning mr-2">Ver</a>
-                                <a href="{{ route('admin.ordenes.edit', $orden )}}" class="btn btn-primary mr-2">Editar</a>
+                                <a href="{{ route('admin.ordens.show', $orden )}}" class="btn btn-secondary mr-2 text-white">Ver</a>
+                                <a href="{{ route('admin.ordens.edit', $orden )}}" class="btn btn-primary mr-2">Editar</a>
                             </div>
                             
                         </td>

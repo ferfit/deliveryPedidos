@@ -256,7 +256,7 @@ return [
         ],
         [
             'text'        => 'Ordenes',
-            'route'         => 'admin.ordenes.index',
+            'route'         => 'admin.ordens.index',
             'icon'        => 'fas fa-tshirt',
             'active' => ['admin/ordenes*'] 
             

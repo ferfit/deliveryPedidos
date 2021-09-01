@@ -44,9 +44,11 @@ class OrdenController extends Controller
      * @param  \App\Models\Orden  $orden
      * @return \Illuminate\Http\Response
      */
-    public function show(Orden $orden)
+    public function show(Orden $ordene)
     {
-        //
+        $productos = json_decode($ordene->listaPedido);
+
+        return view('admin.ordenes.show',compact('ordene','productos'));
     }
 
     /**
