@@ -1,5 +1,5 @@
 <div class="mt-5">
-    <div class="row  py-2 rounded">
+    {{-- <div class="row  py-2 rounded">
         <button class="btn btn-dark mx-2 shadow" wire:click="resetFilter">Todos</button>
         <div class="dropdown shadow">
             <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
@@ -14,7 +14,7 @@
                 @endforeach
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <input wire:model="search" class="form-control mt-3 w-50" type="search" placeholder="Buscar producto por nombre...">
     <table class="table bg-white mt-2 shadow">
@@ -36,17 +36,19 @@
                     <td>
                         <div class="row ">
 
-                            {{-- <div class="d-flex justify-content-center align-items-center">
-                                <input type="number" wire:model="qty">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <button type="button" class="btn btn__cantidad d-block" x-bind:disabled="$wire.qty <= 1"
+                                    > <i class='bx bxs-minus-square'></i></button>
+                                <input type="number" wire:model="qty" id="qty-{{$producto->id}}">
+                                <button type="button" class="btn btn__cantidad" onclick="sumar(})"> <i
+                                        class='bx bxs-plus-square'></i></button>
                             </div>
-                        
+
                             <div class="d-flex justify-content-center align-items-center mt-2">
                                 <button type="button" class="btn btn-danger font-bold"
-                                wire:click="agregarCarrito({{$producto}})"
-                                
-                                wire:loading.attr="disabled"
-                                wire:target="agregarCarrito()">AGREGAR</button>
-                            </div> --}}
+                                    wire:click="agregarCarrito({{ $producto }})" wire:loading.attr="disabled"
+                                    wire:target="agregarCarrito()">AGREGAR</button>
+                            </div>
 
                             {{-- <button type="button" class="btn btn-danger font-bold" wire:click="$set('open',true)"
                                 wire:loading.attr="disabled" wire:target="agregarCarrito()">AGREGAR
@@ -54,20 +56,24 @@
 
 
                             <!-- Button trigger modal -->
-                            <button type="button"
+                            {{-- <button type="button"
                                 class="btn btn-danger shadow d-flex justify-content-center align-items-center"
                                 data-toggle="modal" data-target="#exampleModal">
                                 <i class='bx bx-plus'></i>
-                            </button>
+                            </button> --}}
 
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            {{-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-body">
                                             <div class="d-flex justify-content-center align-items-center">
-                                                <input type="number" class="form-control border-secondary" wire:model.defer="qty">
+                                                
+                                                <input type="number" class="form-control border-secondary"
+                                                    wire:model.defer="qty">
+                                                
+                                                
                                             </div>
 
                                             <div class="d-flex justify-content-center align-items-center mt-2">
@@ -85,7 +91,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
+                            {{-- @livewire('cantidad-producto',['producto' => $producto], key($producto->id)) --}}
 
                         </div>
                     </td>
@@ -99,4 +106,14 @@
     <div class=" mx-auto">
         {{ $productos->onEachSide(0)->links() }}
     </div>
+
+
+    <script>
+        function sumar(id){
+            var cantidad = document.getElementById('#qty'+id)
+
+            console.log(cantidad)
+
+        }
+    </script>
 </div>

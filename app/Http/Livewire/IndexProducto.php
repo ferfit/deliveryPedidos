@@ -75,6 +75,14 @@ class IndexProducto extends Component
 
     }
 
+    /* public function decrement(){
+        $this->qty--;
+    }
+    
+    public function increment(){
+        $this->qty++;
+    } */
+
     public function resetFilter(){
         $this->reset(['search']);
         $this->resetPage();

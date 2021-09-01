@@ -4,19 +4,16 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use App\Models\Orden;
 
 class Carrito extends Component
 {
-    public $nombre,$metodoEnvio,$direccion,$metodoPago,$abono; 
+    public $nombre; 
 
     protected $listeners=['render'];
 
     protected $rules = [
-        'nombre' => 'required',
-        'metodoEnvio' => 'required',
-        'metodoPago' => 'required'
-        
-        
+        'nombre' => 'required'        
     ];
 
 
@@ -26,39 +23,36 @@ class Carrito extends Component
 
         $this->validate();
 
-        if($this->metodoEnvio == "Envio a domicilio"){
-            $rules['direccion'] = 'required';
-        }
-        if($this->metodoPago == "Efectivo"){
-            $rules['abono'] = 'required';
-        }
 
         $this->validate($rules);
 
 
         $pedido = '';
-        $total = "TOTAL: $" .Cart::subtotal();
+        $total = Cart::subtotal();
+         
 
         foreach(Cart::content() as $item){
             $pedido.=$item->name." Cantidad:".$item->qty." Precio: $".$item->price*$item->qty."%0A";
         }
 
-        $pedidoFinal = $pedido."%0A".$total;
+        $pedidoFinal = $pedido."%0A"."TOTAL: $" .$total;
 
-        if($this->direccion){
-            $this->metodoEnvio= $this->metodoEnvio.'%20'.'%0A'.'Direccion: '.$this->direccion;
-        }
-        if($this->abono){
-            $this->metodoPago= $this->metodoPago.'%20'.'%0A'.'Abona con: '.$this->abono;
-        }
+        //Creación de la orden
+        
+        $orden = new Orden();
+
+        $orden->nombre = $this->nombre;
+        $orden->listaPedido = Cart::content();
+        $orden->total = Cart::subtotal();
+        $orden->estado = Orden::PENDIENTE;
+
+        $orden->save();
 
 
 
 
         redirect('https://api.whatsapp.com/send?phone=5491141774133&text=|----Pedido----|%0A%0A'
                 .'Nombre: '.$this->nombre.'%0A'
-                .'Metodo de envio: '.$this->metodoEnvio.'%0A'
-                .'Metodo de pago: '.$this->metodoPago.'%0A%0A'
                 .'Detalle del pedido:'.'%0A'.$pedidoFinal);
         //return dd($pedidoFinal);
 

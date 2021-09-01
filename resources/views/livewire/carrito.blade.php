@@ -70,7 +70,7 @@
         
 
         {{-- Metodo de envio --}}
-        <div class="container d-flex flex-column justify-content-center align-items-center mt-3">
+        {{-- <div class="container d-flex flex-column justify-content-center align-items-center mt-3">
             <h2 id="ingresaNombre" class="text-center">Método de envio</h2>
             <select wire:model="metodoEnvio" name="metodoEnvio" class="my-1 opcional shadow selector w-50"  id="metodoDeEnvio" required>
                 <option value="">Elija una opción</option>
@@ -96,11 +96,11 @@
             </span>     
             @enderror
             
-        </div>
+        </div> --}}
 
         {{-- metodo de pago --}}
     
-        <div class="container d-flex flex-column justify-content-center align-items-center mt-3">
+        {{-- <div class="container d-flex flex-column justify-content-center align-items-center mt-3">
             <h2 class="text-center">Método de pago</h2>
             <select wire:model="metodoPago" name="metodoPago" class="my-1 opcional shadow selector w-50" id="metodoDePago" required>
                 <option value="">Elija una opción</option>
@@ -124,7 +124,7 @@
             </span>     
             @enderror
             
-        </div>
+        </div> --}}
       
         {{-- boton whatsapp --}}
         <div class="container cont-enviar d-flex justify-content-center align-items-center mt-3">
