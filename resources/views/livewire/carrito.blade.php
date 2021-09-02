@@ -11,7 +11,7 @@
                 <table class="table w-100">
                     <thead>
                         <tr>  
-                              
+                            <th>Codigo</th>  
                             <th scope="col">Producto</th>
                             <th scope="col">Precio</th>
                             <th scope="col">Cantidad</th>
@@ -22,6 +22,7 @@
                     <tbody id="items">
                         @foreach (Cart::content() as $item)
                         <tr>
+                            <td>{{$item->weight}}</td>
                             <td>{{$item->name}}</td>
                             <td>${{$item->price}} </td>
                             <td>

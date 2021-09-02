@@ -64,7 +64,7 @@ class IndexProducto extends Component
             'name' => $producto->nombre, 
             'qty' => $this->qty , 
             'price' => $producto->precio, 
-            'weight' => 550,
+            'weight' =>$producto->codigo,
             'options' => $this->options
         ]);
  

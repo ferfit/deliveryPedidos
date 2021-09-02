@@ -41,8 +41,25 @@
               </dl>
             </div>
             <!-- /.card-body -->
-          </div>
+        </div>
 
+
+        <table class="table  table bg-white shadow mt-2">
+            
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ $ordene->nombre }}</td>
+                    <td>${{ $ordene->total }}</td>
+                </tr>  
+                
+            </tbody>
+        </table>
 
         <table class="table  table bg-white shadow mt-2">
             
@@ -57,7 +74,7 @@
             <tbody>
                 @foreach($productos as $producto)
                 <tr>
-                    <td>{{ $producto->rowId }}</td>
+                    <td>{{ $producto->weight }}</td>
                     <td>{{ $producto->name }}</td>
                     <td>{{ $producto->qty }}</td>
                     <td>${{ $producto->price }}</td>
@@ -70,8 +87,8 @@
         
         <div class="mx-auto">
             <div class="row mx-auto mt-3">
-                <a href="" class="btn btn-primary mr-2">Imprimir</a>
-                <a href="{{ route('admin.ordens.index' )}}" class="btn btn-secondary mr-2">Volver</a>
+{{--                 <a href="{{ route('admin.ordens.imprimir',$ordene)}}" class="btn btn-primary mr-2">Imprimir</a>
+ --}}                <a href="{{ route('admin.ordens.index' )}}" class="btn btn-secondary mr-2">Volver</a>
             </div>
         </div>
     </div>

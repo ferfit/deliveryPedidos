@@ -18,7 +18,6 @@ class CantidadProducto extends Component
 
     public function mount(Producto $producto){
         $this->producto = $producto;
-        $this->options['imagen'] = Storage::url($this->producto->imagen);
     }
 
     
@@ -37,7 +36,7 @@ class CantidadProducto extends Component
             'name' => $this->producto->nombre, 
             'qty' => $this->qty , 
             'price' => $this->producto->precio , 
-            'weight' => 550,
+            'weight' => 500,
             'options' => $this->options
         ]);
 

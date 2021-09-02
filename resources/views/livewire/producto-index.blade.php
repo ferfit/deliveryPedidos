@@ -25,6 +25,7 @@
         <table class="table bg-white mt-2 shadow">
             <thead>
                 <tr>
+                    <th>Codigo</th>
                     <th>Nombre</th>
                     <th>Descripción</th>
                     <th class="d-none d-lg-block">Precio</th>
@@ -34,7 +35,7 @@
             <tbody>
                 @foreach ($productos as $producto)
                     <tr>
-
+                        <td>{{ $producto->codigo }}</td>
                         <td>{{ $producto->nombre }}</td>
                         <td>{{ $producto->categoria->nombre }}</td>
                         <td class="d-none d-lg-block">${{ $producto->precio }}</td>
