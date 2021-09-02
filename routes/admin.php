@@ -18,8 +18,7 @@ Route::resource('usuarios', UsuarioController::class)->names('usuarios');
 
 Route::resource('ordenes', OrdenController::class)->names('ordens');
 
-Route::get('ordenes/imprimir-orden', [OrdenController::class, 'imprimir'])->name('admin.ordens.imprimir');
-
+Route::get('imprimir/{ordene}', [OrdenController::class, 'imprimir'])->name('imprimir');
 
 Route::post('admin/productos/importar/', [ProductoController::class, 'import'])->name('importar');
 

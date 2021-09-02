@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Orden;
 use Illuminate\Http\Request;
+use App\Exports\OrdensExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class OrdenController extends Controller
 {
@@ -83,5 +85,11 @@ class OrdenController extends Controller
     public function destroy(Orden $orden)
     {
         //
+    }
+    public function imprimir(Orden $ordene){
+        /* return $ordene;
+        die(); */
+        $productos = json_decode($ordene->listaPedido);
+        return Excel::download(new OrdensExport($ordene,$productos), 'orden.xlsx');
     }
 }
