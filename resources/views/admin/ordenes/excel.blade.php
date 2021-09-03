@@ -2,7 +2,7 @@
     <thead>
     <tr>
         <th>Codigo</th>
-        <th>Name</th>
+        <th>Nombre</th>
         <th>Cantidad</th>
         <th>Subtotal</th>
     </tr>

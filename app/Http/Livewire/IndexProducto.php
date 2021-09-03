@@ -69,6 +69,7 @@ class IndexProducto extends Component
         ]);
  
         $this->emitTo('dropdown-cart','render');
+        $this->emit('toastr');
         $this->reset('qty');
 
         
@@ -88,5 +89,9 @@ class IndexProducto extends Component
         $this->resetPage();
         $this->reset(['category_id']);
         
+    }
+
+    public function resetQty(){
+        $this->reset('qty');
     }
 }
