@@ -107,8 +107,9 @@
 
                 
             </div> 
-            <div class="form-group ">
-                <input type="submit" class="btn btn-success shadow rounded mt-2" value="Actualizar orden">
+            <div class="form-group mt-2 ">
+                <input type="submit" class="btn btn-success shadow rounded " value="Actualizar orden">
+                <a href="{{ route('admin.ordens.index' )}}" class="btn btn-secondary mr-2">Volver</a>
             </div>
 
         </form>

@@ -22,6 +22,18 @@
             @csrf
             @method('put')
             <div class="form-group my-5 mx-2">
+                <label for="codigo">Codigo</label>
+                <input type="text" 
+                name="codigo" 
+                class="form-control w-100 @error('codigo') is-invalid @enderror" id="codigo"
+                    value="{{$producto->codigo}}">
+                @error('codigo')
+                <span class="invalid-feedback d-block" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+            <div class="form-group my-5 mx-2">
                 <label for="titulo">Nombre</label>
                 <input type="text" 
                 name="nombre" 
@@ -51,16 +63,6 @@
                 @enderror
             </div> 
 
-            <div class="form-group">
-                <label for="descripcion">Descripción</label><br>
-                <textarea name="descripcion" id="descripcion" cols="30" rows="5" class="w-100 form-control">{{$producto->descripcion}}</textarea>
-                @error('descripcion')
-                <span class="invalid-feedback d-block" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-            </div>
-
             <div class="form-group my-5 mx-2">
                 <label for="precio">Precio</label>
                 <input type="number" 
@@ -74,23 +76,10 @@
                 @enderror
             </div>
 
-            <div class="mt-4 mb-2">
-                <p class="">Imagen actual:</p>
-                <img src="/storage/{{$producto->imagen}}" style="width:300px"alt="">
-            </div>
             
-
-            <div class="form-group">
-                <label for="imagen">Elige una imagén</label>
-                <input type="file" id="imagen" name="imagen" class="form-control overflow-hidden @error('imagen') is-invalid @enderror">
-                @error('imagen')
-                <span class="invalid-feedback d-block" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-            </div>
-            <div class="form-group ">
-                <input type="submit" class="btn btn-success shadow rounded mt-2" value="Actualizar producto">
+            <div class="form-group mt-2 ">
+                <input type="submit" class="btn btn-success shadow rounded " value="Actualizar producto">
+                <a href="{{ route('admin.productos.index' )}}" class="btn btn-secondary mr-2">Volver</a>
             </div>
 
         </form>

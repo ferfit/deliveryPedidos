@@ -27,7 +27,7 @@
                 <tr>
                     <th>Codigo</th>
                     <th>Nombre</th>
-                    <th>Descripción</th>
+                    <th>Categoria</th>
                     <th class="d-none d-lg-block">Precio</th>
                     <th>Acciones</th>
                 </tr>

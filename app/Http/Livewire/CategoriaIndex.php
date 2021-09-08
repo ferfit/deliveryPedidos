@@ -25,7 +25,7 @@ class CategoriaIndex extends Component
     {
         
         return view('livewire.categoria-index', [
-            'categorias' => Categoria::where('nombre', 'like', '%'.$this->search.'%')->paginate(20),
+            'categorias' => Categoria::where('nombre', 'like', '%'.$this->search.'%')->orderBy('id','desc')->paginate(20),
         ]);
     }
 

@@ -30,6 +30,7 @@
                 </div>
                 <div class="form-group mx-2">
                     <input type="submit" class="btn btn-success shadow rounded" value="Agregar categoria">
+                    <a href="{{ route('admin.categorias.index' )}}" class="btn btn-secondary mr-2">Volver</a>
                 </div>
 
             </form>

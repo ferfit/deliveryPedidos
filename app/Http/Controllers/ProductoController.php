@@ -43,23 +43,19 @@ class ProductoController extends Controller
 
         //validamos los datos
         $data = request()->validate([
+            'codigo'=>'required',
             'nombre'=>'required',
             'categoria'=>'required',
-            'descripcion'=>'required',
-            'precio'=>'required',
-            'imagen'=>'required|image'
+            'precio'=>'required'
         ]);
-
-        //obtenemos la ruta de la imagen y la almacenamos con el metodo "store"
-        $ruta_imagen = $request['imagen']->store('upload-productos','public');
 
         //almacenamos en bbdd
         $producto = Producto::create([
+            'codigo' => $data['codigo'],
             'nombre' => $data['nombre'],
             'categoria_id' => $data['categoria'],
-            'descripcion' => $data['descripcion'],
-            'precio' => $data['precio'],
-            'imagen' => $ruta_imagen
+            'precio' => $data['precio']
+
         ]);
 
         return redirect()->route('admin.productos.index');
@@ -86,23 +82,19 @@ class ProductoController extends Controller
     {
         //validamos los datos
         $data = request()->validate([
+            'codigo'=>'required',
             'nombre'=>'required',
             'categoria'=>'required',
             'precio' =>'required',
-            'descripcion'=>'required'
+            
         ]);
         //asignamos los valores
+        $producto->codigo= $data['codigo'];
         $producto->nombre = $data['nombre'];
         $producto->categoria_id= $data['categoria'];
-        $producto->descripcion= $data['descripcion'];
         $producto->precio= $data['precio'];
        
-        //si el usuario sube una nueva imagen
-        if(request('imagen')){
-            $ruta_imagen = $request['imagen']->store('upload-productos','public');
-            //asignamos la imagen 
-            $producto->imagen = $ruta_imagen;
-        }
+        //retorno
         $producto->save();
 
         return redirect()->route('admin.productos.index');  
