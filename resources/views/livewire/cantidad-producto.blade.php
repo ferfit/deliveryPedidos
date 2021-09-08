@@ -1,16 +1,9 @@
-<div class="mt-auto">
-    <div class="d-flex justify-content-center align-items-center">
-        <button type="button" class="btn btn__cantidad d-block"
-        x-bind:disabled="$wire.qty <= 1"
-        wire:click="decrement"> <i class='bx bxs-minus-square' ></i></button>
-        {{-- <span class="mx-2">{{$qty}}</span> --}}
-        <input type="number" value="{{$qty}}">
-        <button type="button" class="btn btn__cantidad"
-        wire:click="increment"> <i class='bx bxs-plus-square'></i></button>
-        
-    </div>
+<div class="mt-auto d-flex justify-content-center align-items-center">
+    
+         <input type="number" value="{{$qty}}" wire:model="qty" min="1" class="form-control w-25 mr-2">
+    
 
-    <div class="d-flex justify-content-center align-items-center mt-2">
+    <div class="d-flex justify-content-center align-items-center">
         <button type="button" class="btn btn-danger font-bold"
         wire:click="agregarCarrito"
         

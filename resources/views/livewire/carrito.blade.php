@@ -32,6 +32,7 @@
                                 <div class="d-flex justify-content-center align-items-center">
                                     ${{$item->price*$item->qty}}
                                     <a class="btn_eliminar-producto" wire:click="delete('{{$item->rowId}}')"><i class='bx bxs-trash ml-2 text-danger'></i></a> 
+                                    
                                 </div>
                                  </td>
                             

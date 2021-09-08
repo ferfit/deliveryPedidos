@@ -18,8 +18,8 @@
         </div>
     </div>
 
-    <input wire:model="search" class="form-control mt-3 w-50" type="search" placeholder="Buscar producto por nombre...">
-    <table class="table bg-white mt-2 shadow">
+{{--     <input wire:model="search" class="form-control mt-3 w-50" type="search" placeholder="Buscar producto por nombre...">
+ --}}    <table class="table bg-white mt-2 shadow w-100">
         <thead>
             <tr>
                 <th>Codigo</th>
@@ -38,6 +38,8 @@
                     <td>${{ $producto->precio }}</td>
                     <td>
                         <div class="row ">
+
+                            @livewire('cantidad-producto',['producto' => $producto], key($producto->id))
 
                             {{-- <div class="d-flex justify-content-center align-items-center">
                                 <button type="button" class="btn btn__cantidad d-block" x-bind:disabled="$wire.qty <= 1"
@@ -59,20 +61,18 @@
 
 
                             <!-- Button trigger modal -->
-                            <button type="button"
+                            {{-- <button type="button"
                                 class="btn btn-danger shadow d-flex justify-content-center align-items-center"
                                 data-toggle="modal" data-target="#exampleModal">
                                 <i class='bx bx-plus'></i>
-                            </button>
+                            </button> --}}
 
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            {{-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
-                                        {{-- <div class="modal-header p-2">
-                                            <h5 class="">{{$producto->nombre}}</h5>
-                                        </div> --}}
+                        
                                         <div class="modal-body">
                                             <div class="d-flex justify-content-center align-items-center">
                                                 
@@ -97,8 +97,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            
+                            </div> --}}
 
                         </div>
                     </td>
@@ -114,12 +113,12 @@
     </div>
 
 
-    <script>
+    {{-- <script>
         function sumar(id){
             var cantidad = document.getElementById('#qty'+id)
 
             console.log(cantidad)
 
         }
-    </script>
+    </script> --}}
 </div>

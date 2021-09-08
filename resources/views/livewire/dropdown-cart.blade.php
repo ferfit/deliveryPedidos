@@ -19,6 +19,7 @@
                   <div class="d-flex col-12">
                     <p class="m-0">Cant:{{$item->qty}} </p>
                     <p class=" m-0 ml-2">Precio: ${{$item->price}}</p>
+                    <a class="btn_eliminar-producto" wire:click="delete('{{$item->rowId}}')"><i class='bx bxs-trash ml-2 text-danger'></i></a> 
                   </div>
                 </article>
                 

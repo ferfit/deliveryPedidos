@@ -70,7 +70,7 @@
         
         <div class="mx-auto">
             <div class="row mx-auto mt-3">
-                 <a href="{{ route('admin.imprimir',$ordene)}}" class="btn btn-primary mr-2">Imprimir</a>
+                 <a href="{{ route('admin.imprimir',$ordene)}}" class="btn btn-success mr-2">  <i class="fas fa-file-export mr-1"></i> Excel </a>
                  <a href="{{ route('admin.ordens.index' )}}" class="btn btn-secondary mr-2">Volver</a>
             </div>
         </div>

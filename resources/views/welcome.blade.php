@@ -51,7 +51,7 @@
             @endif
         </div> --}}
 
-    <div class="container-fluid p-0 m-0 cabecera">
+    <div class="container-fluid p-0 m-0 cabecera rounded ">
 
         @if (Route::has('login'))
             <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block ml-2">
@@ -115,6 +115,13 @@
                 "positionClass": "toast-bottom-right"
             }
             toastr.success('Producto agregado  al carrito exitosamente !!! ')
+        })
+
+        Livewire.on('toastr-error', () => {
+            toastr.options = {
+                "positionClass": "toast-bottom-right"
+            }
+            toastr.danger('Debe seleccionar una cantidad mayor a 0 !!! ')
         })
         
 

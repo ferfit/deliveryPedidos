@@ -11,7 +11,6 @@ class CantidadProducto extends Component
 {
     public $producto;
 
-   /*  public $qty = "1"; */
     public $qty = "1";
 
     public $options =[];
@@ -31,17 +30,25 @@ class CantidadProducto extends Component
 
     //Agregar item al carrito
     public function agregarCarrito(){
-        Cart::add([
-            'id' => $this->producto->id, 
-            'name' => $this->producto->nombre, 
-            'qty' => $this->qty , 
-            'price' => $this->producto->precio , 
-            'weight' => 500,
-            'options' => $this->options
-        ]);
-
-        $this->emitTo('dropdown-cart','render');
-        $this->reset('qty');
+        if($this->qty < 1 ){
+            $this->emit('toastr-error');
+        } else {
+            Cart::add([
+                'id' => $this->producto->id, 
+                'name' => $this->producto->nombre, 
+                'qty' => $this->qty , 
+                'price' => $this->producto->precio, 
+                'weight' =>$this->producto->codigo,
+                'options' => $this->options
+            ]);
+     
+            $this->emitTo('dropdown-cart','render');
+            $this->emit('toastr');
+            $this->reset('qty');
+        }
+        
+        
+        
 
         
 

@@ -50,7 +50,7 @@ class IndexProducto extends Component
         return view('livewire.index-producto', [
             'productos' => Producto::where('nombre', 'like', '%'.$this->search.'%')
                                     ->category($this->category_id)
-                                    ->orderBy('id', 'desc') 
+                                    ->orderBy('id', 'desc')
                                     ->paginate(50),
         ],compact('categorias'));
     }
@@ -88,10 +88,9 @@ class IndexProducto extends Component
         $this->reset(['search']);
         $this->resetPage();
         $this->reset(['category_id']);
+        $this->emitTo('cantidad-producto','render');
         
     }
 
-    public function resetQty(){
-        $this->reset('qty');
-    }
+    
 }
