@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use app\Models\User;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
@@ -37,8 +38,15 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         
+        
         $data = request()->validate([
             'nombre'=>'required',
+            'razonSocial'=>'required',
+            'cuit'=>'required',
+            'direccion'=>'required',
+            'localidad'=>'required',
+            'provincia'=>'required',
+            'whatsapp'=>'required',
             'email'=>'required',
             'password'=>'required'
         ]);
@@ -46,8 +54,14 @@ class UsuarioController extends Controller
 
         $usuario = User::create([
             'name' => $data['nombre'],
+            'razonSocial' => $data['razonSocial'],
+            'cuit' => $data['cuit'],
+            'direccion' => $data['direccion'],
+            'localidad' => $data['localidad'],
+            'provincia' => $data['provincia'],
+            'whatsapp' => $data['whatsapp'],
             'email' => $data['email'],
-            'password' => Crypt::encryptString($data['password'])
+            'password' => hash::make( $data['password'])
             
         ]);
 
@@ -73,9 +87,9 @@ class UsuarioController extends Controller
      */
     public function edit(User $usuario)
     {
-        $clave = Crypt::decryptString($usuario->password);
+        
 
-        return view('admin.usuarios.edit',compact('usuario','clave'));
+        return view('admin.usuarios.edit',compact('usuario'));
     }
 
     /**
@@ -90,14 +104,26 @@ class UsuarioController extends Controller
         
         $data = request()->validate([
             'nombre'=>'required',
+            'razonSocial'=>'required',
+            'cuit'=>'required',
+            'direccion'=>'required',
+            'localidad'=>'required',
+            'provincia'=>'required',
+            'whatsapp'=>'required',
             'email'=>'required',
             'password'=>'required'
         ]);
 
         //asignamos los valores
         $usuario->name = $data['nombre'];
+        $usuario->razonSocial= $data['razonSocial'];
+        $usuario->cuit = $data['cuit'];
+        $usuario->direccion= $data['direccion'];
+        $usuario->localidad = $data['localidad'];
+        $usuario->provincia= $data['provincia'];
+        $usuario->whatsapp = $data['whatsapp'];
         $usuario->email= $data['email'];
-        $usuario->password = Crypt::encryptString($data['password']);
+        $usuario->password = $data['password'];
         
         $usuario->save();
 

@@ -29,8 +29,68 @@
             <div class="form-group my-5 mx-2 col-12">
                 <label for="nombre">Nombre</label>
                 <input type="text" name="nombre" class="form-control w-100 @error('nombre') is-invalid @enderror"
-                    id="nombre" value="{{ $usuario->name }}">
+                    id="nombre" value="{{$usuario->name}}">
                 @error('nombre')
+                    <span class="invalid-feedback d-block" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group my-5 mx-2 col-12">
+                <label for="razonSocial">Razon Social</label>
+                <input type="text" name="razonSocial"
+                    class="form-control w-100 @error('razonSocial') is-invalid @enderror" id="razonSocial" value="{{$usuario->razonSocial}}">
+                @error('razon_social')
+                    <span class="invalid-feedback d-block" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group my-5 mx-2 col-12">
+                <label for="cuit">Cuit</label>
+                <input type="text" name="cuit" class="form-control w-100 @error('cuit') is-invalid @enderror" id="cuit"
+                    value="{{$usuario->cuit}}">
+                @error('cuit')
+                    <span class="invalid-feedback d-block" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group my-5 mx-2 col-12">
+                <label for="direccion">Dirección</label>
+                <input type="text" name="direccion" class="form-control w-100 @error('direccion') is-invalid @enderror"
+                    id="direccion" value="{{$usuario->direccion}}">
+                @error('direccion')
+                    <span class="invalid-feedback d-block" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group my-5 mx-2 col-12">
+                <label for="localidad">Localidad</label>
+                <input type="text" name="localidad" class="form-control w-100 @error('localidad') is-invalid @enderror"
+                    id="localidad" value="{{$usuario->localidad}}">
+                @error('localidad')
+                    <span class="invalid-feedback d-block" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group my-5 mx-2 col-12">
+                <label for="provincia">Provincia</label>
+                <input type="text" name="provincia" class="form-control w-100 @error('provincia') is-invalid @enderror"
+                    id="provincia" value="{{$usuario->provincia}}">
+                @error('provincia')
+                    <span class="invalid-feedback d-block" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group my-5 mx-2 col-12">
+                <label for="whatsapp">Whatsapp</label>
+                <input type="number" name="whatsapp" class="form-control w-100 @error('whatsapp') is-invalid @enderror"
+                    id="whatsapp" value="{{$usuario->whatsapp}}">
+                @error('whatsapp')
                     <span class="invalid-feedback d-block" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -39,20 +99,20 @@
             <div class="form-group my-5 mx-2 col-12">
                 <label for="email">Email</label>
                 <input type="email" name="email" class="form-control w-100 @error('email') is-invalid @enderror"
-                    id="email" value="{{ $usuario->email }}">
+                    id="email" value="{{$usuario->email}}">
                 @error('email')
                     <span class="invalid-feedback d-block" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
             </div>
+            
             <div class="form-group my-5 mx-2 row">
 
                 <div class=" pr-0 col-11">
                     <label for="password">Password</label>
                     <input type="password" name="password"
-                        class="form-control w-100 @error('password') is-invalid @enderror" id="password"
-                        value="{{ $clave }}">
+                        class="form-control w-100 @error('password') is-invalid @enderror" id="password" value="{{$usuario->password}}">
                     @error('password')
                         <span class="invalid-feedback d-block" role="alert">
                             <strong>{{ $message }}</strong>

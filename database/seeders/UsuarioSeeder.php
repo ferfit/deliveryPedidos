@@ -24,7 +24,7 @@ class UsuarioSeeder extends Seeder
         ]);
         $user = User::create([
             'name'=>'PARQUE RIVADAVIA',
-            'razon-social'=>'TUJABI SRL',
+            'razonSocial'=>'TUJABI SRL',
             'cuit'=>'30-71710900-3',
             'direccion'=>'Av. Rivadavia 4717',
             'localidad'=>'CABALLITO',
@@ -36,7 +36,7 @@ class UsuarioSeeder extends Seeder
         ]);
         $user = User::create([
             'name'=>'AGUERO',
-            'razon-social'=>'DAMIAN ARIEL POLIN',
+            'razonSocial'=>'DAMIAN ARIEL POLIN',
             'cuit'=>'20-31453752-2',
             'direccion'=>'Aguero 1926',
             'localidad'=>'RECOLETA',
@@ -48,7 +48,7 @@ class UsuarioSeeder extends Seeder
         ]);
         $user = User::create([
             'name'=>'ROSARIO',
-            'razon-social'=>'IGNACIO SEPLIARSKY',
+            'razonSocial'=>'IGNACIO SEPLIARSKY',
             'cuit'=>'20-25328968-7',
             'direccion'=>'Pte roca 872',
             'localidad'=>'ROSARIO',
@@ -59,7 +59,7 @@ class UsuarioSeeder extends Seeder
         ]);
         $user = User::create([
             'name'=>'LACROZE',
-            'razon-social'=>'KARBEL SRL',
+            'razonSocial'=>'KARBEL SRL',
             'cuit'=>'30-71713658-2',
             'direccion'=>'Lacroze 2244',
             'localidad'=>'PALERMO',
@@ -70,7 +70,7 @@ class UsuarioSeeder extends Seeder
         ]);
         $user = User::create([
             'name'=>'REMEROS',
-            'razon-social'=>'MARIA SOLEDAD CORGHI',
+            'razonSocial'=>'MARIA SOLEDAD CORGHI',
             'cuit'=>'27-25171788-0',
             'direccion'=>'Av. Santa Maria de las Conchas 4711',
             'localidad'=>'RINCON DE MILBERG',
@@ -81,7 +81,7 @@ class UsuarioSeeder extends Seeder
         ]);
         $user = User::create([
             'name'=>'PUEYRREDON',
-            'razon-social'=>'JORGE ARIEL PILIPSKY',
+            'razonSocial'=>'JORGE ARIEL PILIPSKY',
             'cuit'=>'20-22128058-0',
             'direccion'=>'Av. Mosconi 2602',
             'localidad'=>'VILLA PUEYRREDON',
@@ -92,7 +92,7 @@ class UsuarioSeeder extends Seeder
         ]);
         $user = User::create([
             'name'=>'MARTINEZ',
-            'razon-social'=>'7273 SRL',
+            'razonSocial'=>'7273 SRL',
             'cuit'=>'30-71702335-4',
             'direccion'=>'General Alvear 469',
             'localidad'=>'Martinez',
@@ -103,7 +103,7 @@ class UsuarioSeeder extends Seeder
         ]);
         $user = User::create([
             'name'=>'PILAR',
-            'razon-social'=>'LEANDRO LAMMARDO',
+            'razonSocial'=>'LEANDRO LAMMARDO',
             'cuit'=>'20-28910004-1',
             'direccion'=>'R. Caamaño 1060',
             'localidad'=>'PILAR',
@@ -114,7 +114,7 @@ class UsuarioSeeder extends Seeder
         ]);
         $user = User::create([
             'name'=>'AV. SANTA FE',
-            'razon-social'=>'EZEQUIEL PERAZZO',
+            'razonSocial'=>'EZEQUIEL PERAZZO',
             'cuit'=>'20-28985048-2',
             'direccion'=>'Av. Santa Fe 1600',
             'localidad'=>'Recoleta',
@@ -125,7 +125,7 @@ class UsuarioSeeder extends Seeder
         ]);
         $user = User::create([
             'name'=>'ALVAREZ',
-            'razon-social'=>'MIGUEL ANGEL REXACH',
+            'razonSocial'=>'MIGUEL ANGEL REXACH',
             'cuit'=>'20-08104212-9',
             'direccion'=>'Gorriti 1064',
             'localidad'=>'FRANCISCO ALVAREZ',
@@ -136,7 +136,7 @@ class UsuarioSeeder extends Seeder
         ]);
         $user = User::create([
             'name'=>'BELGRANO',
-            'razon-social'=>'MATIAS HECTOR FERNANDEZ',
+            'razonSocial'=>'MATIAS HECTOR FERNANDEZ',
             'cuit'=>'20-28298905-1',
             'direccion'=>'Av. Cabildo 2841',
             'localidad'=>'BELGRANO',
@@ -147,7 +147,7 @@ class UsuarioSeeder extends Seeder
         ]);
         $user = User::create([
             'name'=>'URQUIZA',
-            'razon-social'=>'HUMITA SRL',
+            'razonSocial'=>'HUMITA SRL',
             'cuit'=>'33-71656517-9',
             'direccion'=>'Av. Olazabal 4955',
             'localidad'=>'VILLA URQUIZA',
@@ -158,7 +158,7 @@ class UsuarioSeeder extends Seeder
         ]);
         $user = User::create([
             'name'=>'SCALABRINI',
-            'razon-social'=>'HUMITA SRL',
+            'razonSocial'=>'HUMITA SRL',
             'cuit'=>'33-71656517-9',
             'direccion'=>'Raul Escalabrini Ortiz 2762',
             'localidad'=>'PALERMO',
@@ -169,7 +169,7 @@ class UsuarioSeeder extends Seeder
         ]);
         $user = User::create([
             'name'=>'LAS HERAS',
-            'razon-social'=>'LOCRO SA',
+            'razonSocial'=>'LOCRO SA',
             'cuit'=>'33-71543389-9',
             'direccion'=>'Av. Las Heras 2000',
             'localidad'=>'RECOLETA',
@@ -180,7 +180,7 @@ class UsuarioSeeder extends Seeder
         ]);
         $user = User::create([
             'name'=>'PRIMERA JUNTA',
-            'razon-social'=>'LOCRO SA',
+            'razonSocial'=>'LOCRO SA',
             'cuit'=>'33-71543389-9',
             'direccion'=>'Av. Rivadavia 5595',
             'localidad'=>'CABALLITO',
@@ -192,7 +192,7 @@ class UsuarioSeeder extends Seeder
         
         $user = User::create([
             'name'=>'ALMAGRO',
-            'razon-social'=>'LOCRO SA',
+            'razonSocial'=>'LOCRO SA',
             'cuit'=>'33-71543389-9',
             'direccion'=>'Av. Corrientes 4549',
             'localidad'=>'ALMAGRO',
