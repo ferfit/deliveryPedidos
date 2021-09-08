@@ -59,9 +59,9 @@ class OrdenController extends Controller
      * @param  \App\Models\Orden  $orden
      * @return \Illuminate\Http\Response
      */
-    public function edit(Orden $orden)
+    public function edit(Orden $ordene)
     {
-        //
+        return view('admin.ordenes.edit',compact('ordene'));
     }
 
     /**
@@ -71,9 +71,21 @@ class OrdenController extends Controller
      * @param  \App\Models\Orden  $orden
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Orden $orden)
+    public function update(Request $request, Orden $ordene)
     {
-        //
+        //validamos los datos
+        $data = request()->validate([
+            'estado'=>'required',
+        ]);
+        //asignamos los valores
+        $ordene->estado = $data['estado'];
+
+        //guarda el cambio
+        $ordene->save();
+
+        //retorno
+        return redirect()->route('admin.ordens.index');  
+    
     }
 
     /**
