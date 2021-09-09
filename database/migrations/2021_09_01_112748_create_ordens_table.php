@@ -20,6 +20,10 @@ class CreateOrdensTable extends Migration
             $table->json('listaPedido');
             $table->float('total',10 , 2);
             $table->enum('estado',[Orden::PENDIENTE,Orden::ENPROCESO,Orden::ENVIADO,Orden::CANCELADO])->default(Orden::PENDIENTE);
+
+            $table->unsignedBigInteger('user_id');
+            
+            $table->foreign('user_id')->references('id')->on('users'); 
             $table->timestamps();
         });
     }

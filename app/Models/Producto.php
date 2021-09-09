@@ -18,6 +18,7 @@ class Producto extends Model
     public function categoria(){
         return $this->belongsTo('App\Models\Categoria');
     }
+    
 
     //query scope
     public function scopeCategory($query,$category_id){
@@ -25,4 +26,6 @@ class Producto extends Model
             return $query->where('categoria_id',$category_id);
         }
     }
+
+    
 }

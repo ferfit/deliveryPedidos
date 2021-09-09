@@ -117,12 +117,20 @@
 
 </div>
 
+
+
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+<link rel="stylesheet" href="/css/admin_custom.css">
+<link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
 @stop
 
 @section('js')
-    
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+@if (session('estado'))
+    <script>
+        toastr.success('{{ session('estado') }}')
+    </script>
+@endif
 @stop

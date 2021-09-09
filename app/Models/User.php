@@ -46,4 +46,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /*Relacion 1:n*/
+    public function ordenes(){
+        return $this->hasMany('App\Models\Orden');
+    }
 }

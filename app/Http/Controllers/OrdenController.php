@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Session;
 use App\Models\Orden;
 use Illuminate\Http\Request;
 use App\Exports\OrdensExport;
+use Illuminate\Support\Facades\Redirect;
 use Maatwebsite\Excel\Facades\Excel;
 
 class OrdenController extends Controller
@@ -84,7 +86,7 @@ class OrdenController extends Controller
         $ordene->save();
 
         //retorno
-        return redirect()->route('admin.ordens.index');  
+        return back()->with('estado','Actualización exitosamente!!');
     
     }
 

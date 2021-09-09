@@ -45,6 +45,7 @@ class Carrito extends Component
         $orden->listaPedido = Cart::content();
         $orden->total = Cart::subtotal();
         $orden->estado = Orden::PENDIENTE;
+        $orden->user_id = auth()->user()->id;
 
         $orden->save();
 
@@ -52,7 +53,7 @@ class Carrito extends Component
 
 
         redirect('https://api.whatsapp.com/send?phone=5491141774133&text=|----Pedido----|%0A%0A'
-                .'Nombre: '.auth()->user()->name.'%0A'
+                .'Franquiciado: '.auth()->user()->name.'%0A'
                 .'Detalle del pedido:'.'%0A'.$pedidoFinal);
         //return dd($pedidoFinal);
 

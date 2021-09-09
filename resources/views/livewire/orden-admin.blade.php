@@ -19,7 +19,7 @@
                     <tr>
                         <td>{{ $orden->id }}</td>
                         <td>{{ $orden->nombre }}</td>
-                        <td>{{ $orden->direccion }}</td>
+                        <td>{{ $orden->user->direccion}}</td>
                         <td>${{ $orden->total }}</td>
                         <td>
                             @switch( $orden->estado )
@@ -43,7 +43,7 @@
                         <td>
                             <div class="row mx-auto">
                                 <a href="{{ route('admin.ordens.show', $orden )}}" class="btn btn-secondary mr-2 text-white">Ver</a>
-                                <a href="{{ route('admin.ordens.edit', ['ordene' => $orden ] )}}" class="btn btn-primary mr-2">Editar</a>
+                                {{-- <a href="{{ route('admin.ordens.edit', ['ordene' => $orden ] )}}" class="btn btn-primary mr-2">Editar</a> --}}
                             </div>
                             
                         </td>

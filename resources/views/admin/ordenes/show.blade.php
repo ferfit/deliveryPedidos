@@ -9,7 +9,7 @@
 
 <div class="container mt-2 ">
     <div class="container mx-auto">
-        <div class="card">
+        <div class="card shadow">
             <div class="card-header">
               <h3 class="card-title">
                 Información del pedido Nro {{$ordene->id}}
@@ -20,6 +20,13 @@
               <dl>
                 <dt>Franquiciado</dt>
                 <dd>{{$ordene->nombre}}</dd>
+                <dt>Razón Social</dt>
+                <dd>{{$ordene->user->razonSocial}}</dd>
+                <dt>Dirección</dt>
+                <dd>{{$ordene->user->direccion}}</dd>
+                <dt>Cuit</dt>
+                <dd>{{$ordene->user->cuit}}</dd>
+                
                 <dt>Total a pagar</dt>
                 <dd>${{$ordene->total}}</dd>
                 <dt>Estado</dt>
@@ -70,8 +77,10 @@
         
         <div class="mx-auto">
             <div class="row mx-auto mt-3">
-                 <a href="{{ route('admin.imprimir',$ordene)}}" class="btn btn-success mr-2">  <i class="fas fa-file-export mr-1"></i> Excel </a>
-                 <a href="{{ route('admin.ordens.index' )}}" class="btn btn-secondary mr-2">Volver</a>
+                 <a href="{{ route('admin.imprimir',$ordene)}}" class="btn btn-success mr-2">  <i class="fas fa-file-export mr-1" shadow></i> Excel </a>
+                 <a href="{{ route('admin.ordens.edit', ['ordene' => $ordene ] )}}" class="btn btn-primary mr-2 shadow">Editar</a>
+
+                 <a href="{{ route('admin.ordens.index' )}}" class="btn btn-secondary mr-2 shadow">Volver</a>
             </div>
         </div>
     </div>
