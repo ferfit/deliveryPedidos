@@ -124,6 +124,24 @@
 
                 </div>
 
+                <div class="form-group my-5 mx-2">
+                    <label for="tipo">Rol</label>
+                    <select name="tipo" id="tipo" class="form-control @error('tipo') is-invalid @enderror" id="tipo">
+                        
+                        <option value="franquiciado" selected>Franquiciado</option>
+                        <option value="administrador">Administrador</option>
+        
+                            
+                      
+    
+                    </select>
+                    @error('tipo')
+                    <span class="invalid-feedback d-block" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div> 
+
                 <div class="form-group ml-3">
                     <input type="submit" class="btn btn-success shadow rounded mt-2" value="Agregar usuario">
                 </div>

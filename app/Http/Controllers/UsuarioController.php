@@ -48,7 +48,8 @@ class UsuarioController extends Controller
             'provincia'=>'required',
             'whatsapp'=>'required',
             'email'=>'required',
-            'password'=>'required'
+            'password'=>'required',
+            'tipo'=>'required'
         ]);
 
 
@@ -61,7 +62,8 @@ class UsuarioController extends Controller
             'provincia' => $data['provincia'],
             'whatsapp' => $data['whatsapp'],
             'email' => $data['email'],
-            'password' => hash::make( $data['password'])
+            'password' => hash::make( $data['password']),
+            'tipo' =>$data['tipo']
             
         ]);
 
@@ -111,7 +113,8 @@ class UsuarioController extends Controller
             'provincia'=>'required',
             'whatsapp'=>'required',
             'email'=>'required',
-            'password'=>'required'
+            'password'=>'required',
+            'tipo'=>'required'
         ]);
 
         //asignamos los valores
@@ -124,6 +127,7 @@ class UsuarioController extends Controller
         $usuario->whatsapp = $data['whatsapp'];
         $usuario->email= $data['email'];
         $usuario->password = $data['password'];
+        $usuario->tipo = $data['tipo'];
         
         $usuario->save();
 

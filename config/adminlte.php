@@ -257,7 +257,7 @@ return [
         [
             'text'        => 'Ordenes',
             'route'         => 'admin.ordens.index',
-            'icon'        => 'fas fa-tshirt',
+            'icon'        => 'far fa-list-alt',
             'active' => ['admin/ordenes*'] 
             
         ],
