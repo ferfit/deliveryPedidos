@@ -16,7 +16,7 @@ use App\Http\Livewire\Carrito;
 */
 
 
-Route::get('/', [App\Http\Controllers\InicioController::class, 'index'])->name('inicio');
+Route::get('/', [App\Http\Controllers\InicioController::class, 'index'])->name('inicio')->middleware('auth');
 
 Auth::routes(['register' => false]);
 

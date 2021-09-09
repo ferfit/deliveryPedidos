@@ -7,19 +7,19 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\OrdenController;
 
-Route::get('/', [AdminController::class, 'index'])->name('home');
+Route::get('/', [AdminController::class, 'index'])->name('home')->middleware('soloadmin');
 
 
-Route::resource('categorias', CategoriaController::class)->names('categorias'); 
+Route::resource('categorias', CategoriaController::class)->names('categorias')->middleware('soloadmin'); 
 
-Route::resource('productos', ProductoController::class)->names('productos'); 
+Route::resource('productos', ProductoController::class)->names('productos')->middleware('soloadmin'); 
 
-Route::resource('usuarios', UsuarioController::class)->names('usuarios'); 
+Route::resource('usuarios', UsuarioController::class)->names('usuarios')->middleware('soloadmin'); 
 
-Route::resource('ordenes', OrdenController::class)->names('ordens');
+Route::resource('ordenes', OrdenController::class)->names('ordens')->middleware('soloadmin');
 
-Route::get('imprimir/{ordene}', [OrdenController::class, 'imprimir'])->name('imprimir');
+Route::get('imprimir/{ordene}', [OrdenController::class, 'imprimir'])->name('imprimir')->middleware('soloadmin');
 
-Route::post('admin/productos/importar/', [ProductoController::class, 'import'])->name('importar');
+Route::post('admin/productos/importar/', [ProductoController::class, 'import'])->name('importar')->middleware('soloadmin');
 
 

@@ -56,8 +56,33 @@
         @if (Route::has('login'))
             <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block ml-2">
                 @auth
-                    <a href="{{ url('/admin') }}"
-                        class="text-sm text-gray-700 underline bg-danger p-1 rounded text-light text-decoration-none">Home</a>
+                    @if (Auth::user()->tipo == 'franquiciado')
+                        
+                            <a class="text-sm text-gray-700 underline bg-danger p-1 rounded text-light text-decoration-none" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                Cerrar sesión
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        
+                    @else
+                        <a href="{{ url('/admin') }}"
+                            class="text-sm text-gray-700 underline bg-danger p-1 rounded text-light text-decoration-none">Home</a>
+                            
+                            <a class="text-sm text-gray-700 underline bg-danger p-1 rounded text-light text-decoration-none" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                Cerrar sesión
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                    @endif
+
                 @else
                     <a href="{{ route('login') }}"
                         class="text-sm text-gray-700 underline bg-danger p-1 rounded text-light text-decoration-none">Login</a>
@@ -109,7 +134,6 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <script>
-
         Livewire.on('toastr', () => {
             toastr.options = {
                 "positionClass": "toast-bottom-right"
@@ -123,8 +147,6 @@
             }
             toastr.danger('Debe seleccionar una cantidad mayor a 0 !!! ')
         })
-        
-
     </script>
 
 </body>

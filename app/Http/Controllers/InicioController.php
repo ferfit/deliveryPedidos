@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 class InicioController extends Controller
 {
+    
+
     public function index()
     {
         $categorias = Categoria::all();

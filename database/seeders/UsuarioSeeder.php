@@ -19,7 +19,8 @@ class UsuarioSeeder extends Seeder
         $user = User::create([
             'name'=>'Fernando Pereyra',
             'email'=>'fer@correo.com',
-            'password'=>hash::make('12345678')
+            'password'=>hash::make('12345678'),
+            'tipo' => 'administrador'
                        
         ]);
         $user = User::create([
@@ -31,7 +32,8 @@ class UsuarioSeeder extends Seeder
             'provincia'=>'CABA',
             'whatsapp'=>'1163592876',
             'email'=>'parquerivadavia@eneldo.com',
-            'password'=>hash::make('Rivadavia4717')
+            'password'=>hash::make('Rivadavia4717'),
+            'tipo' => 'franquiciado'
                        
         ]);
         $user = User::create([
@@ -43,7 +45,8 @@ class UsuarioSeeder extends Seeder
             'provincia'=>'CABA',
             'whatsapp'=>'1132010549',
             'email'=>'aguero@eneldo.com',
-            'password'=>hash::make('Aguero1926')
+            'password'=>hash::make('Aguero1926'),
+            'tipo' => 'franquiciado'
                        
         ]);
         $user = User::create([
@@ -55,7 +58,8 @@ class UsuarioSeeder extends Seeder
             'provincia'=>'SANTA FE',
             'whatsapp'=>'3412111635',
             'email'=>'rosario@eneldo.com',
-            'password'=>hash::make('Roca872')                       
+            'password'=>hash::make('Roca872'),
+            'tipo' => 'franquiciado'                       
         ]);
         $user = User::create([
             'name'=>'LACROZE',
@@ -66,7 +70,8 @@ class UsuarioSeeder extends Seeder
             'provincia'=>'CABA',
             'whatsapp'=>'11321377933',
             'email'=>'lacroze@eneldo.com',
-            'password'=>hash::make('LACROZE2244')                       
+            'password'=>hash::make('LACROZE2244'),
+            'tipo' => 'franquiciado'                       
         ]);
         $user = User::create([
             'name'=>'REMEROS',
@@ -77,7 +82,8 @@ class UsuarioSeeder extends Seeder
             'provincia'=>'PCIA. DE BS.AS',
             'whatsapp'=>'1128537813',
             'email'=>'remeros@eneldo.com',
-            'password'=>hash::make('REMEROS4711')                       
+            'password'=>hash::make('REMEROS4711'),
+            'tipo' => 'franquiciado'                       
         ]);
         $user = User::create([
             'name'=>'PUEYRREDON',
@@ -88,7 +94,8 @@ class UsuarioSeeder extends Seeder
             'provincia'=>'CABA',
             'whatsapp'=>'1166377074',
             'email'=>'pueyrredon@eneldo.com',
-            'password'=>hash::make('Mosconi2602')                       
+            'password'=>hash::make('Mosconi2602'),
+            'tipo' => 'franquiciado'                       
         ]);
         $user = User::create([
             'name'=>'MARTINEZ',
@@ -99,7 +106,8 @@ class UsuarioSeeder extends Seeder
             'provincia'=>'PCIA. DE BS.AS',
             'whatsapp'=>'1130273697',
             'email'=>'martinez@eneldo.com',
-            'password'=>hash::make('Alvear469')                       
+            'password'=>hash::make('Alvear469'),
+            'tipo' => 'franquiciado'                       
         ]);
         $user = User::create([
             'name'=>'PILAR',
@@ -110,7 +118,8 @@ class UsuarioSeeder extends Seeder
             'provincia'=>'PCIA. DE BS.AS',
             'whatsapp'=>'1131991993',
             'email'=>'pilar@eneldo.com',
-            'password'=>hash::make('Caamaño1060')                       
+            'password'=>hash::make('Caamaño1060'),
+            'tipo' => 'franquiciado'                       
         ]);
         $user = User::create([
             'name'=>'AV. SANTA FE',
@@ -121,7 +130,8 @@ class UsuarioSeeder extends Seeder
             'provincia'=>'CABA',
             'whatsapp'=>'1131780143',
             'email'=>'santafe@eneldo.com',
-            'password'=>hash::make('SantaFe1600')                       
+            'password'=>hash::make('SantaFe1600'),
+            'tipo' => 'franquiciado'                       
         ]);
         $user = User::create([
             'name'=>'ALVAREZ',
@@ -132,7 +142,8 @@ class UsuarioSeeder extends Seeder
             'provincia'=>'PCIA. DE BS.AS',
             'whatsapp'=>'1140862301',
             'email'=>'alvarez@eneldo.com',
-            'password'=>hash::make('Gorriti1064')                       
+            'password'=>hash::make('Gorriti1064'),
+            'tipo' => 'franquiciado'                       
         ]);
         $user = User::create([
             'name'=>'BELGRANO',
@@ -143,7 +154,8 @@ class UsuarioSeeder extends Seeder
             'provincia'=>'CABA',
             'whatsapp'=>'1152600352',
             'email'=>'belgrano@eneldo.com',
-            'password'=>hash::make('Cabildo2841')                       
+            'password'=>hash::make('Cabildo2841'),
+            'tipo' => 'franquiciado'                       
         ]);
         $user = User::create([
             'name'=>'URQUIZA',
@@ -154,7 +166,8 @@ class UsuarioSeeder extends Seeder
             'provincia'=>'CABA',
             'whatsapp'=>'1132757219',
             'email'=>'urquiza@eneldo.com',
-            'password'=>hash::make('Cabildo2841')                       
+            'password'=>hash::make('Cabildo2841'),
+            'tipo' => 'franquiciado'                       
         ]);
         $user = User::create([
             'name'=>'SCALABRINI',
@@ -165,7 +178,8 @@ class UsuarioSeeder extends Seeder
             'provincia'=>'CABA',
             'whatsapp'=>'1127172481',
             'email'=>'scalabrini@eneldo.com',
-            'password'=>hash::make('Ortiz2762')                       
+            'password'=>hash::make('Ortiz2762'),
+            'tipo' => 'franquiciado'                       
         ]);
         $user = User::create([
             'name'=>'LAS HERAS',
@@ -187,7 +201,8 @@ class UsuarioSeeder extends Seeder
             'provincia'=>'CABA',
             'whatsapp'=>'1163036138',
             'email'=>'primerajunta@eneldo.com',
-            'password'=>hash::make('Rivadavia5596')                       
+            'password'=>hash::make('Rivadavia5596'),
+            'tipo' => 'franquiciado'                       
         ]);
         
         $user = User::create([
@@ -199,7 +214,8 @@ class UsuarioSeeder extends Seeder
             'provincia'=>'CABA',
             'whatsapp'=>'1156251073',
             'email'=>'almagro@eneldo.com',
-            'password'=>hash::make('Corrientes4549')                       
+            'password'=>hash::make('Corrientes4549') ,
+            'tipo' => 'franquiciado'                      
         ]);
 
 
