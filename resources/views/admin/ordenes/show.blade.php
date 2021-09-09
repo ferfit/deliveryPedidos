@@ -18,7 +18,7 @@
             <!-- /.card-header -->
             <div class="card-body">
               <dl>
-                <dt>Cliente</dt>
+                <dt>Franquiciado</dt>
                 <dd>{{$ordene->nombre}}</dd>
                 <dt>Total a pagar</dt>
                 <dd>${{$ordene->total}}</dd>

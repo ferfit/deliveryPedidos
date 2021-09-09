@@ -8,23 +8,23 @@ use App\Models\Orden;
 
 class Carrito extends Component
 {
-    public $nombre; 
+    /* public $nombre;  */
 
     protected $listeners=['render'];
 
-    protected $rules = [
+    /* protected $rules = [
         'nombre' => 'required'        
-    ];
+    ]; */
 
 
     public function enviarPedido(){
 
-        $rules = $this->rules;
+        /* $rules = $this->rules;
 
         $this->validate();
 
 
-        $this->validate($rules);
+        $this->validate($rules); */
 
 
         $pedido = '';
@@ -41,7 +41,7 @@ class Carrito extends Component
         
         $orden = new Orden();
 
-        $orden->nombre = $this->nombre;
+        $orden->nombre = auth()->user()->name;
         $orden->listaPedido = Cart::content();
         $orden->total = Cart::subtotal();
         $orden->estado = Orden::PENDIENTE;
@@ -52,7 +52,7 @@ class Carrito extends Component
 
 
         redirect('https://api.whatsapp.com/send?phone=5491141774133&text=|----Pedido----|%0A%0A'
-                .'Nombre: '.$this->nombre.'%0A'
+                .'Nombre: '.auth()->user()->name.'%0A'
                 .'Detalle del pedido:'.'%0A'.$pedidoFinal);
         //return dd($pedidoFinal);
 

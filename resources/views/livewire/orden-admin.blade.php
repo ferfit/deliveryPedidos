@@ -7,7 +7,8 @@
                 <thead>
                     <tr>
                         <th>Nro</th>
-                        <th>Nombre</th>
+                        <th>Franquiciado</th>
+                        <th>Dirección</th>
                         <th>Total</th>
                         <th>Estado</th>
                         <th style="width: 200px">Acciones</th>
@@ -18,6 +19,7 @@
                     <tr>
                         <td>{{ $orden->id }}</td>
                         <td>{{ $orden->nombre }}</td>
+                        <td>{{ $orden->direccion }}</td>
                         <td>${{ $orden->total }}</td>
                         <td>
                             @switch( $orden->estado )
