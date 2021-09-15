@@ -110,7 +110,7 @@
             
         ---------------------------------------------------- --}}
     <div class="container" id="cont-producto">
-
+        {{-- componente livewire productos --}}
         @livewire('index-producto')
 
 

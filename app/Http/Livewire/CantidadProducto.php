@@ -17,6 +17,7 @@ class CantidadProducto extends Component
 
     public function mount(Producto $producto){
         $this->producto = $producto;
+        $this->options['codigo'] = $producto->codigo;
     }
 
     
@@ -38,8 +39,8 @@ class CantidadProducto extends Component
                 'name' => $this->producto->nombre, 
                 'qty' => $this->qty , 
                 'price' => $this->producto->precio, 
-                'weight' =>$this->producto->codigo,
-                'options' => $this->options
+                'weight' =>550,
+                'options' =>  $this->options
             ]);
      
             $this->emitTo('dropdown-cart','render');

@@ -62,9 +62,10 @@
                 </tr>
             </thead>
             <tbody>
+                
                 @foreach($productos as $producto)
                 <tr>
-                    <td>{{ $producto->weight }}</td>
+                    <td>{{ $producto->options->codigo }}</td>
                     <td>{{ $producto->name }}</td>
                     <td>{{ $producto->qty }}</td>
                     <td>${{ $producto->price }}</td>
@@ -78,8 +79,6 @@
         <div class="mx-auto">
             <div class="row mx-auto mt-3">
                  <a href="{{ route('admin.imprimir',$ordene)}}" class="btn btn-success mr-2">  <i class="fas fa-file-export mr-1" shadow></i> Excel </a>
-                 <a href="{{ route('admin.ordens.edit', ['ordene' => $ordene ] )}}" class="btn btn-primary mr-2 shadow">Editar</a>
-
                  <a href="{{ route('admin.ordens.index' )}}" class="btn btn-secondary mr-2 shadow">Volver</a>
             </div>
         </div>

@@ -22,7 +22,8 @@
                     <tbody id="items">
                         @foreach (Cart::content() as $item)
                         <tr>
-                            <td>{{$item->weight}}</td>
+                            
+                            <td>{{$item->options['codigo']}}</td>
                             <td>{{$item->name}}</td>
                             <td>${{$item->price}} </td>
                             <td>

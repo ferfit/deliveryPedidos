@@ -56,7 +56,7 @@ class IndexProducto extends Component
     }
 
     //Agregar item al carrito
-    public function agregarCarrito(Producto $producto){
+    /* public function agregarCarrito(Producto $producto){
 
 
         Cart::add([
@@ -64,8 +64,8 @@ class IndexProducto extends Component
             'name' => $producto->nombre, 
             'qty' => $this->qty , 
             'price' => $producto->precio, 
-            'weight' =>$producto->codigo,
-            'options' => $this->options
+            'weight' =>550,
+            'options' => [ 'codigo' => $producto->precio ]
         ]);
  
         $this->emitTo('dropdown-cart','render');
@@ -75,7 +75,7 @@ class IndexProducto extends Component
         
 
     }
-
+ */
     /* public function decrement(){
         $this->qty--;
     }
