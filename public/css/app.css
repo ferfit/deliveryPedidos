@@ -10903,9 +10903,13 @@ a.text-dark:focus {
   }
 }
 
+body {
+  background-color: #000;
+}
+
 .cabecera {
-  height: 600px;
-  background-image: url(/images/cabecera.jpg?e2e2fe2d8a3780deba3dab721d11f46e);
+  height: 100vh;
+  background-image: url(/images/cabecera.jpg?661e57cb93cf39a20119ef2da63953fe);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

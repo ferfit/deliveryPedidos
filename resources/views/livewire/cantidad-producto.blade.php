@@ -9,7 +9,7 @@
     </div>
 
     <div class="d-flex justify-content-center align-items-center mt-2">
-        <button type="button" class="btn btn-danger font-bold"
+        <button type="button" class="btn btn-danger font-bold shadow"
         wire:click="agregarCarrito"
         
         wire:loading.attr="disabled"

@@ -1,11 +1,16 @@
+body{
+  background-color: #000;
+}
+
 .cabecera{
-    height: 600px;
+    height: 100vh;
     
     background-image: url("../../public/img/cabecera.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
+
 
 .selector{
     border: 1px solid #a34040;

@@ -15,12 +15,29 @@ class CategoriaSeeder extends Seeder
     public function run()
     {
         $categoria = Categoria::create([
-            'nombre'=>'Pizzas'
+            'nombre'=>'Combos'
             
         ]);
         $categoria2 = Categoria::create([
-            'nombre'=>'Empanadas'
+            'nombre'=>'Ensaladas'
             
         ]);
+        $categoria2 = Categoria::create([
+            'nombre'=>'Calientes'
+            
+        ]);
+        $categoria2 = Categoria::create([
+            'nombre'=>'Frios'
+            
+        ]);
+        $categoria2 = Categoria::create([
+            'nombre'=>'Postres'
+            
+        ]);
+        $categoria2 = Categoria::create([
+            'nombre'=>'Bebidas'
+            
+        ]);
+
     }
 }
