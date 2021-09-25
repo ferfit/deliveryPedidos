@@ -92,8 +92,8 @@
             </div>
 
         @endif
-        <div class="d-flex justify-content-center align-items-center" style="margin-top: 170px">
-            <img src="img/logo.webp" alt="">
+        <div class="d-flex justify-content-center align-items-center overflow-hidden" style="margin-top: 170px">
+            <img src="img/logo.webp" alt="" class="">
         </div>
 
     </div>
