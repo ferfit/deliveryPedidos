@@ -3,7 +3,8 @@
         <div class="container mx-auto">
             <input wire:model="search" class="form-control mt-3 w-50" type="search"
                 placeholder="Buscar orden por...">
-            <table class="table  table bg-white shadow mt-2">
+            <div class="table-responsive container-fluid">
+                <table class="table bg-white mt-2 shadow-sm">
                 <thead>
                     <tr>
                         <th>Fecha</th>
@@ -57,6 +58,7 @@
                     
                 </tbody>
             </table>
+            </div>
             <div class=" mx-auto">
                 {{ $ordenes->onEachSide(0)->links() }}
             </div>

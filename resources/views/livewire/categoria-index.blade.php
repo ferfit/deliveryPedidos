@@ -2,7 +2,7 @@
     <div class="container mx-auto">
         <input wire:model="search" class="form-control mt-3 w-50" type="search"
             placeholder="Buscar categoria por nombre...">
-        <table class="table  table bg-white shadow mt-2">
+        <table class="table bg-white shadow mt-2">
             <thead>
                 <tr>
                     <th>Id</th>

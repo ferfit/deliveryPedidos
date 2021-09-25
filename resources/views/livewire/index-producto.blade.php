@@ -19,7 +19,7 @@
     </div>
 
 {{--     <input wire:model="search" class="form-control mt-3 w-50" type="search" placeholder="Buscar producto por nombre...">
- --}}    <table class="table bg-white mt-2 shadow w-100">
+ --}}    <table class="table bg-white mt-2 shadow ">
         <thead>
             <tr>
                 <th>Codigo</th>
