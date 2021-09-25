@@ -6,6 +6,7 @@
             <table class="table  table bg-white shadow mt-2">
                 <thead>
                     <tr>
+                        <th>Fecha</th>
                         <th>Nro</th>
                         <th>Franquiciado</th>
                         <th>Dirección</th>
@@ -17,6 +18,10 @@
                 <tbody>
                     @foreach($ordenes as $orden)
                     <tr>
+                        
+                        <td>{{ date('d-m-Y', strtotime($orden->created_at)) }}</td>
+                        
+
                         <td>{{ $orden->id }}</td>
                         <td>{{ $orden->nombre }}</td>
                         <td>{{ $orden->user->direccion}}</td>

@@ -89,6 +89,15 @@
   cursor: pointer;
 }
 
+//boton paginacion
+.page-item.active .page-link {
+  background-color: #a34040;
+  border-color: #a34040;
+}
+
+.page-link{
+   color: #a34040;
+}
 
 @media (min-width: 540px) {
     

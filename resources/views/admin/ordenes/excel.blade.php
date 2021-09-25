@@ -10,7 +10,7 @@
     <tbody>
         @foreach($productos as $p)
         <tr>
-            <td>{{ $p->weight}}</td>
+            <td>{{$p->options->codigo}}</td>
             <td>{{$p->name}}</td>
             <td>{{$p->qty}}</td>
             <td>{{$p->price}}</td>

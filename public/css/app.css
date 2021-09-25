@@ -10994,6 +10994,15 @@ a.text-dark:focus {
   cursor: pointer;
 }
 
+.page-item.active .page-link {
+  background-color: #a34040;
+  border-color: #a34040;
+}
+
+.page-link {
+  color: #a34040;
+}
+
 @media (min-width: 540px) {
   .carrito {
     width: 8%;

@@ -70,7 +70,7 @@
                         
                     @else
                         <a href="{{ url('/admin') }}"
-                            class="text-sm text-gray-700 underline bg-danger p-1 rounded text-light text-decoration-none">Home</a>
+                            class="text-sm text-gray-700 underline bg-danger p-1 rounded text-light text-decoration-none">Dashboard</a>
                             
                             <a class="text-sm text-gray-700 underline bg-danger p-1 rounded text-light text-decoration-none" href="{{ route('logout') }}"
                             onclick="event.preventDefault();

@@ -53,6 +53,9 @@ class IndexProducto extends Component
                                     ->orderBy('id', 'desc')
                                     ->paginate(50),
         ],compact('categorias'));
+
+        $this->emitTo('dropdown-cart','render');
+
     }
 
     //Agregar item al carrito
