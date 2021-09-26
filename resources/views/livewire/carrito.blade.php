@@ -12,23 +12,23 @@
                     <thead>
                         <tr>  
                               
-                            <th scope="col">Producto</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Cantidad</th>
-                            <th scope="col">Total</th>
+                            <th scope="col" class="text-white">Producto</th>
+                            <th scope="col" class="text-white">Precio</th>
+                            <th scope="col" class="text-white">Cantidad</th>
+                            <th scope="col" class="text-white">Total</th>
                         </tr>
                     </thead>
     
                     <tbody id="items">
                         @foreach (Cart::content() as $item)
                         <tr>
-                            <td>{{$item->name}}</td>
-                            <td>${{$item->price}} </td>
-                            <td>
+                            <td class="text-white">{{$item->name}}</td>
+                            <td class="text-white">${{$item->price}} </td>
+                            <td class="text-white">
                                 @livewire('carrito-cantidad',['rowId' => $item->rowId ], key($item->rowId))
                             </td>
-                            <td>
-                                <div class="d-flex justify-content-center align-items-center">
+                            <td class="text-white">
+                                <div class="d-flex justify-content-center align-items-center text-white">
                                     ${{$item->price*$item->qty}}
                                     <a class="btn_eliminar-producto" wire:click="delete('{{$item->rowId}}')"><i class='bx bxs-trash ml-2 text-danger'></i></a> 
                                 </div>
@@ -49,7 +49,7 @@
                 <div class="mt-3">
                     <a type="button" href="" class="btn btn-danger carrito__ver-carrito mx-auto font-bold d-block w-50 mt-2 shadow rounded"
                     >BORRAR CARRITO</a>
-                    <a type="button" href="{{ route('inicio')}}" class="btn carrito__ver-carrito mx-auto font-bold d-block w-50 mt-2 shadow rounded"
+                    <a type="button" href="{{ route('inicio')}}" class="btn carrito__ver-carrito mx-auto font-bold d-block w-50 mt-2 shadow rounded bg-white"
                     >VOLVER</a>                    
                 </div>
 
@@ -58,7 +58,7 @@
         ------------------------------------------------------}}
 
         <div class="container d-flex flex-column justify-content-center align-items-center mt-5">
-            <h2 id="ingresaNombre" class="text-center">Ingresa tu nombre</h2>
+            <h2 id="ingresaNombre" class="text-center text-white">Ingresa tu nombre</h2>
             <input wire:model="nombre" name="nombre" type="text" class="nombre mt-2 form-control w-50" id="valor" value="">
             @error('nombre')       
             <span class="invalid-feedback d-flex flex-column justify-content-center align-items-center" role="alert">
@@ -71,7 +71,7 @@
 
         {{-- Metodo de envio --}}
         <div class="container d-flex flex-column justify-content-center align-items-center mt-3">
-            <h2 id="ingresaNombre" class="text-center">Método de envio</h2>
+            <h2 id="ingresaNombre" class="text-center text-white">Método de envio</h2>
             <select wire:model="metodoEnvio" name="metodoEnvio" class="my-1 opcional shadow selector w-50"  id="metodoDeEnvio" required>
                 <option value="">Elija una opción</option>
                 <option value="Envio a domicilio">Envio a domicilio</option>
@@ -101,7 +101,7 @@
         {{-- metodo de pago --}}
     
         <div class="container d-flex flex-column justify-content-center align-items-center mt-3">
-            <h2 class="text-center">Método de pago</h2>
+            <h2 class="text-center text-white">Método de pago</h2>
             <select wire:model="metodoPago" name="metodoPago" class="my-1 opcional shadow selector w-50" id="metodoDePago" required>
                 <option value="">Elija una opción</option>
                 <option value="Efectivo">Efectivo</option>

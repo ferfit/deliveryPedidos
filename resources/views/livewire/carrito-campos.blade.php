@@ -4,7 +4,7 @@
         ------------------------------------------------------}}
 
         <div class="container d-flex flex-column justify-content-center align-items-center mt-5">
-            <h2 id="ingresaNombre" class="text-center">Ingresa tu nombre</h2>
+            <h2 id="ingresaNombre" class="text-center text-white">Ingresa tu nombre</h2>
             <input wire:model="nombre" type="text" class="nombre mt-2 form-control w-50" id="valor">
           </div>
         
