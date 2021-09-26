@@ -30,6 +30,7 @@
                 <tr>
                     <th>Nombre</th>
                     <th >Descripción</th>
+                    <th>Categoria</th>
                     <th class="d-none d-lg-block">Precio</th>
                     <th>Acciones</th>
                 </tr>
@@ -39,6 +40,7 @@
                     <tr>
                         <td>{{$producto->nombre}}</td>
                         <td >{{$producto->descripcion}}</td>
+                        <td>{{ $producto->categoria->nombre}}</td>
                         <td class="d-none d-lg-block">${{$producto->precio}}</td>
                         <td>
                             <div class="row">
