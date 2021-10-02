@@ -126,7 +126,7 @@ class UsuarioController extends Controller
         $usuario->provincia= $data['provincia'];
         $usuario->whatsapp = $data['whatsapp'];
         $usuario->email= $data['email'];
-        $usuario->password = $data['password'];
+        $usuario->password = Hash::make($data['password']);
         $usuario->tipo = $data['tipo'];
         
         $usuario->save();
