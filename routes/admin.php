@@ -6,13 +6,16 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\OrdenController;
+use App\Models\Producto;
 
 Route::get('/', [AdminController::class, 'index'])->name('home')->middleware('soloadmin');
 
 
 Route::resource('categorias', CategoriaController::class)->names('categorias')->middleware('soloadmin'); 
 
-Route::resource('productos', ProductoController::class)->names('productos')->middleware('soloadmin'); 
+Route::resource('productos', ProductoController::class)->names('productos')->middleware('soloadmin');
+
+Route::get('admin/productos/eliminar-todos', [ProductoController::class, 'eliminartodos'])->name('eliminar-todos')->middleware('soloadmin');
 
 Route::resource('usuarios', UsuarioController::class)->names('usuarios')->middleware('soloadmin'); 
 

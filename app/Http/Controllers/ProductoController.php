@@ -7,6 +7,7 @@ use App\Models\Categoria;
 use Illuminate\Http\Request;
 use App\Imports\ProductosImport;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\DB;
 
 class ProductoController extends Controller
 {
@@ -127,4 +128,12 @@ class ProductoController extends Controller
 
         
     } 
+
+    public function eliminartodos()
+    {
+
+        $productos = DB::table('productos')->delete();
+
+        return redirect()->route('admin.productos.index');
+    }
 }

@@ -29,6 +29,9 @@
 
             </form>
         </div>
+        <div class="p-3 mr-3">
+            <a href="{{ route('admin.eliminar-todos') }}" class="btn btn-danger shadow">Elimitar productos</a>
+        </div>
     </div>
 
     

@@ -50,7 +50,7 @@ class IndexProducto extends Component
         return view('livewire.index-producto', [
             'productos' => Producto::where('nombre', 'like', '%'.$this->search.'%')
                                     ->category($this->category_id)
-                                    ->orderBy('id', 'desc')
+                                    ->orderBy('nombre', 'asc')
                                     ->paginate(50),
         ],compact('categorias'));
 
