@@ -76,6 +76,19 @@
                 @enderror
             </div>
 
+            <div class="form-group my-5 mx-2">
+                <label for="minimo">Mínimo</label>
+                <input type="text" 
+                name="minimo" 
+                class="form-control w-100 @error('minimo') is-invalid @enderror" id="minimo"
+                    value="{{$producto->minimo}}">
+                @error('minimo')
+                <span class="invalid-feedback d-block" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+
             
             <div class="form-group mt-2 ">
                 <input type="submit" class="btn btn-success shadow rounded " value="Actualizar producto">

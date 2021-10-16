@@ -47,7 +47,8 @@ class ProductoController extends Controller
             'codigo'=>'required',
             'nombre'=>'required',
             'categoria'=>'required',
-            'precio'=>'required'
+            'precio'=>'required',
+            'minimo' => 'required'
         ]);
 
         //almacenamos en bbdd
@@ -55,7 +56,8 @@ class ProductoController extends Controller
             'codigo' => $data['codigo'],
             'nombre' => $data['nombre'],
             'categoria_id' => $data['categoria'],
-            'precio' => $data['precio']
+            'precio' => $data['precio'],
+            'minimo' => $data['minimo']
 
         ]);
 
@@ -87,6 +89,7 @@ class ProductoController extends Controller
             'nombre'=>'required',
             'categoria'=>'required',
             'precio' =>'required',
+            'minimo' => 'required'
             
         ]);
         //asignamos los valores
@@ -94,6 +97,7 @@ class ProductoController extends Controller
         $producto->nombre = $data['nombre'];
         $producto->categoria_id= $data['categoria'];
         $producto->precio= $data['precio'];
+        $producto->minimo= $data['minimo'];
        
         //retorno
         $producto->save();

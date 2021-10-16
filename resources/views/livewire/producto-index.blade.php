@@ -27,7 +27,8 @@
                 <th>Codigo</th>
                 <th>Nombre</th>
                 <th>Categoria</th>
-                <th class="d-none d-lg-block">Precio</th>
+                <th >Precio</th>
+                <th >Min</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -37,7 +38,8 @@
                     <td>{{ $producto->codigo }}</td>
                     <td>{{ $producto->nombre }}</td>
                     <td>{{ $producto->categoria->nombre }}</td>
-                    <td class="d-none d-lg-block">${{ $producto->precio }}</td>
+                    <td >${{ $producto->precio }}</td>
+                    <td >{{ $producto->minimo }}</td>
                     <td>
                         <div class="row mx-auto">
                             <a href="{{ route('admin.productos.edit', $producto) }}"

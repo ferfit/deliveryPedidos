@@ -26,7 +26,8 @@
                     <th>Codigo</th>
                     <th>Producto</th>
                     <th>Categoria</th>
-                    <th class="d-none d-lg-block">Precio</th>
+                    <th >Precio</th>
+                    <th>Min</th>
                     <th></th>
                 </tr>
             </thead>
@@ -37,6 +38,7 @@
                         <td>{{ $producto->nombre }}</td>
                         <td><span class="bg-dark text-white p-2 rounded">{{ $producto->categoria->nombre }}</span></td>
                         <td>${{ $producto->precio }}</td>
+                        <td>10u</td>
                         <td>
                             <div class="row ">
 

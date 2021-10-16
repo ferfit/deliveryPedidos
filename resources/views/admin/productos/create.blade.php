@@ -36,6 +36,7 @@
                 </span>
                 @enderror
             </div>
+
             <div class="form-group my-5 mx-2">
                 <label for="titulo">Nombre</label>
                 <input type="text" 
@@ -48,6 +49,7 @@
                 </span>
                 @enderror
             </div>
+
             <div class="form-group my-5 mx-2">
 
                 <label for="categoria">Categoria</label>
@@ -76,6 +78,19 @@
                 class="form-control @error('precio') is-invalid @enderror" id="precio"
                     value="">
                 @error('precio')
+                <span class="invalid-feedback d-block" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+
+            <div class="form-group my-5 mx-2">
+                <label for="minimo">Mínimo</label>
+                <input type="text" 
+                name="minimo" 
+                class="form-control w-100 @error('minimo') is-invalid @enderror" id="minimo"
+                    value="">
+                @error('minimo')
                 <span class="invalid-feedback d-block" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
