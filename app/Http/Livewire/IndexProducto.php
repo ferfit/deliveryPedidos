@@ -37,7 +37,7 @@ class IndexProducto extends Component
 
     public function render()
     {
-        $categorias = Categoria::all();
+        $categorias = Categoria::orderBy('nombre','asc')->get();
 
         /* $productos = Producto::
                     category($this->category_id)

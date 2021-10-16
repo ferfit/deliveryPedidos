@@ -49,7 +49,9 @@
                 @enderror
             </div>
             <div class="form-group my-5 mx-2">
+
                 <label for="categoria">Categoria</label>
+
                 <select name="categoria" id="categoria" class="form-control @error('categoria') is-invalid @enderror" id="categoria">
                     <option value="">Seleccione</option>
                     @foreach ($categorias as $categoria)
@@ -57,8 +59,8 @@
                             {{ $categoria ->nombre}}
                         </option>
                     @endforeach 
-
                 </select>
+
                 @error('categoria')
                 <span class="invalid-feedback d-block" role="alert">
                     <strong>{{ $message }}</strong>

@@ -10994,6 +10994,17 @@ a.text-dark:focus {
   cursor: pointer;
 }
 
+.cont-carrito {
+  cursor: pointer;
+}
+
+.lista-carrito {
+  top: 50px;
+  right: 0px;
+  width: 350px;
+  height: 80vh;
+}
+
 .page-item.active .page-link {
   background-color: #a34040;
   border-color: #a34040;

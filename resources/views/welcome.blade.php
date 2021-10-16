@@ -19,14 +19,15 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
     @livewireStyles
-
+    
     <style>
         .toastr-success {
             bottom: 10px !important;
         }
-
-    </style>
-
+        
+        </style>
+    <!-- Alpine js -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js"></script>
 
 
 </head>

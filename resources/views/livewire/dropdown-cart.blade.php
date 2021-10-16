@@ -1,14 +1,14 @@
-<div>
-    <div class="dropdown">
+<div >
+    <div class="dropdown position-relative cont-carrito" x-data="{ open: false }" >
         
-        <img src="img/carrito.svg" class="position-relative" alt="" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <img src="img/carrito.svg"   @click="open = true" >
         @if (Cart::count())
         <span class="carrito__cantidad position-absolute">{{Cart::count()}}</span>
         @endif
         
 
 
-        <div class="dropdown-menu shadow" aria-labelledby="dropdownMenuButton">
+        <div class="lista-carrito position-absolute bg-white shadow overflow-auto" x-show="open" @click.away="open = false">
 
           <ul class="p-0 m-0">
             @forelse (Cart::content() as $item )
