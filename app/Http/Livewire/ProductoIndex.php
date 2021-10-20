@@ -24,7 +24,7 @@ class ProductoIndex extends Component
     public function updatingSearch()
     {
         $this->resetPage();
-    }
+    } 
 
     
 
@@ -48,6 +48,10 @@ class ProductoIndex extends Component
                                     ->orderBy('id', 'desc') 
                                     ->paginate(50),
         ],compact('categorias'));
+
+        
+
+
     }
 
     public function resetFilter(){

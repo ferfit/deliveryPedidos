@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    {{-- <input wire:model="search" class="form-control mt-3 w-50" type="search" placeholder="Buscar producto por nombre..."> --}}
+    <input wire:model.defer="search"  wire:keydown.enter="render" class="form-control mt-3 w-50" type="search"  placeholder="Buscar producto por nombre...">
     <div class="table-responsive container-fluid">
         <table class="table bg-white mt-2 shadow-sm ">
             <thead>
@@ -32,6 +32,7 @@
                 </tr>
             </thead>
             <tbody>
+              
                 @foreach ($productos as $producto)
                     <tr>
                         <td>{{ $producto->codigo }}</td>
@@ -107,6 +108,7 @@
                     </tr>
                 @endforeach
 
+               
 
 
             </tbody>
@@ -114,7 +116,7 @@
     </div>
     <div class=" mx-auto">
         {{ $productos->onEachSide(0)->links() }}
-    </div>
+    </div> 
 
 
     {{-- <script>

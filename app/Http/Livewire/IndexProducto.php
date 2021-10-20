@@ -39,22 +39,23 @@ class IndexProducto extends Component
     {
         $categorias = Categoria::orderBy('nombre','asc')->get();
 
-        /* $productos = Producto::
-                    category($this->category_id)
-                    ->orderBy('id', 'desc')
-                    ->paginate(100)
-                    ; */
-
-        //return view('livewire.producto-index', compact('categorias','productos'));
+        
 
         return view('livewire.index-producto', [
             'productos' => Producto::where('nombre', 'like', '%'.$this->search.'%')
                                     ->category($this->category_id)
                                     ->orderBy('nombre', 'asc')
-                                    ->paginate(50),
+                                    ->paginate(500),
+                                    
+                                    
+                                    
         ],compact('categorias'));
 
-        $this->emitTo('dropdown-cart','render');
+
+        
+
+        //$this->emitTo('dropdown-cart','render');
+        //$this->emitTo('cantidad-producto','render');
 
     }
 
@@ -92,6 +93,16 @@ class IndexProducto extends Component
         $this->resetPage();
         $this->reset(['category_id']);
         $this->emitTo('cantidad-producto','render');
+        
+    }
+
+    public function search(){
+        $productos = Producto::where('nombre', 'like', '%'.$this->search.'%')
+        ->get();
+
+        return $productos;
+        die();
+        view('livewire.index-producto',compact('productos'));
         
     }
 

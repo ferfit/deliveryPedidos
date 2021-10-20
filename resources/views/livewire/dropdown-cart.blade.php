@@ -13,7 +13,7 @@
         <div 
         x-show="open"
         :class="{'d-block':open,'d-none':!open}"
-        class="lista-carrito position-absolute bg-white d-none overflow-auto "
+        class="lista-carrito position-absolute bg-white d-none overflow-auto shadow"
             @click.away="open = false">
 
             <ul class="p-0 m-0">
