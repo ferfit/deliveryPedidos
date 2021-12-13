@@ -45,7 +45,9 @@ class IndexProducto extends Component
             'productos' => Producto::where('nombre', 'like', '%'.$this->search.'%')
                                     ->category($this->category_id)
                                     ->orderBy('nombre', 'asc')
-                                    ->paginate(500),
+                                    ->take(200)
+                                    ->get(),
+                                    /*->paginate(500),*/
                                     
                                     
                                     

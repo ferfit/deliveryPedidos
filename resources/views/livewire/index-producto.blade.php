@@ -114,10 +114,10 @@
             </tbody>
         </table>
     </div>
-    <div class=" mx-auto">
+   {{--  <div class=" mx-auto">
         {{ $productos->onEachSide(0)->links() }}
     </div> 
-
+ --}}
 
     {{-- <script>
         function sumar(id){
