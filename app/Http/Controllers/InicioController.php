@@ -7,18 +7,22 @@ use Illuminate\Http\Request;
 
 class InicioController extends Controller
 {
-    
 
-    public function index()
+
+    public function index(Categoria $categoria = null)
     {
         $categorias = Categoria::all();
-        
-        
-        return view('welcome', compact('categorias'));
+
+        if($categoria == null){
+            return view('welcome', compact('categorias'));
+        } else {
+            return view('welcome', compact('categorias','categoria'));
+        }
+
     }
 
     public function carrito()
-    { 
+    {
         return view('carrito');
     }
 }

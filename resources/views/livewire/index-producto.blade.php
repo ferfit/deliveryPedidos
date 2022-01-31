@@ -9,6 +9,8 @@
 
             <div class="dropdown-menu shadow" aria-labelledby="dropdownMenuButton">
                 <div class="d-flex flex-wrap w-100">
+
+
                     @foreach ($categorias as $categoria)
                         <a wire:click="$set('category_id',{{ $categoria->id }})" class="dropdown-item d-block w-50"
                             href="#">{{ $categoria->nombre }}</a>
@@ -27,97 +29,78 @@
                     <th>Producto</th>
                     <th>Categoria</th>
                     <th >Precio</th>
-                    <th>Min</th>
+                   {{--  <th>Min</th> --}}
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-              
+
                 @foreach ($productos as $producto)
                     <tr>
                         <td>{{ $producto->codigo }}</td>
                         <td>{{ $producto->nombre }}</td>
                         <td><span class="bg-dark text-white p-2 rounded">{{ $producto->categoria->nombre }}</span></td>
                         <td>${{ $producto->precio }}</td>
-                        <td>10u</td>
+                        {{-- <td>10u</td> --}}
                         <td>
-                            <div class="row ">
 
-                                @livewire('cantidad-producto',['producto' => $producto], key($producto->id))
 
-                                {{-- <div class="d-flex justify-content-center align-items-center">
-                                    <button type="button" class="btn btn__cantidad d-block" x-bind:disabled="$wire.qty <= 1"
-                                        > <i class='bx bxs-minus-square'></i></button>
-                                    <input type="number" wire:model="qty" id="qty-{{$producto->id}}">
-                                    <button type="button" class="btn btn__cantidad" onclick="sumar(})"> <i
-                                            class='bx bxs-plus-square'></i></button>
+                            <form class="mt-auto d-flex justify-content-center align-items-center" method="POST"	>
+
+                                <input type="number" wire:model.defer="cantidad" name="cantidad" value="1"  min="1" class="form-control w-25 mr-2">
+
+
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <button type="button" class="btn btn-danger font-bold"
+                                    wire:click="sumarAlCarrito({{$producto}})"
+
+                                    wire:loading.attr="disabled"
+                                    wire:target="agregarCarrito">AGREGAR</button>
                                 </div>
 
-                                <div class="d-flex justify-content-center align-items-center mt-2">
-                                    <button type="button" class="btn btn-danger font-bold"
-                                        wire:click="agregarCarrito({{ $producto }})" wire:loading.attr="disabled"
-                                        wire:target="agregarCarrito()">AGREGAR</button>
-                                </div> --}}
-
-                                {{-- <button type="button" class="btn btn-danger font-bold" wire:click="$set('open',true)"
-                                    wire:loading.attr="disabled" wire:target="agregarCarrito()">AGREGAR
-                                </button> --}}
-
-
-                                <!-- Button trigger modal -->
-                                {{-- <button type="button"
-                                    class="btn btn-danger shadow d-flex justify-content-center align-items-center"
-                                    data-toggle="modal" data-target="#exampleModal">
-                                    <i class='bx bx-plus'></i>
-                                </button> --}}
-
-                                <!-- Modal -->
-                                {{-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                            
-                                            <div class="modal-body">
-                                                <div class="d-flex justify-content-center align-items-center">
-                                                    
-                                                    <input type="number" class="form-control border-secondary"
-                                                        wire:model.defer="qty">
-                                                    
-                                                    
-                                                </div>
-
-                                                <div class="d-flex justify-content-center align-items-center mt-2">
-
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer mx-auto">
-                                                <button type="button" class="btn btn-danger font-bold"
-                                                    wire:click="agregarCarrito({{ $producto }})"
-                                                    wire:loading.attr="disabled" wire:target="agregarCarrito()"
-                                                    data-dismiss="modal">AGREGAR</button>
-                                                <button type="button" class="btn btn-dark"
-                                                    data-dismiss="modal" wire:click="resetQty">SALIR</button>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> --}}
-
-                            </div>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
 
-               
+
 
 
             </tbody>
         </table>
     </div>
-   {{--  <div class=" mx-auto">
-        {{ $productos->onEachSide(0)->links() }}
-    </div> 
- --}}
+    <div class=" mx-auto overflow-hidden">
+        {{ $productos->links() }}
+    </div>
+
+
+
+    <!-- Button trigger modal -->
+    <button  type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+        Agregar
+    </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
     {{-- <script>
         function sumar(id){

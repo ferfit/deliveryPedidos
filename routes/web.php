@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Carrito;
+use App\Http\Controllers\ProductoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,10 +24,11 @@ Auth::routes(['register' => false]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('carrito', [App\Http\Controllers\InicioController::class, 'carrito'] )->name('carrito');
+//Route::post('/carrito/{producto}', [App\Http\Controllers\ProductoController::class, 'carrito'] )->name('sumar');
 
 
 Route::get('/storage-link',function(){
-    
+
     if(file_exists(public_path('storage'))){
         return 'el directorio ya existe';
     }

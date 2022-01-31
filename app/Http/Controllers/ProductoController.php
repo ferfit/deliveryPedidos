@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Imports\ProductosImport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\DB;
+use Gloudemans\Shoppingcart\Facades\Cart;
 
 class ProductoController extends Controller
 {
@@ -40,7 +41,7 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        
+
 
         //validamos los datos
         $data = request()->validate([
@@ -66,13 +67,13 @@ class ProductoController extends Controller
 
     }
 
-    
+
     public function show(Producto $producto)
     {
         //
     }
 
-    
+
     public function edit(Producto $producto)
     {
         $categorias = Categoria::all();
@@ -80,7 +81,7 @@ class ProductoController extends Controller
         return view('admin.productos.edit',compact('categorias','producto'));
     }
 
-    
+
     public function update(Request $request, Producto $producto)
     {
         //validamos los datos
@@ -90,7 +91,7 @@ class ProductoController extends Controller
             'categoria'=>'required',
             'precio' =>'required',
             'minimo' => 'required'
-            
+
         ]);
         //asignamos los valores
         $producto->codigo= $data['codigo'];
@@ -98,11 +99,11 @@ class ProductoController extends Controller
         $producto->categoria_id= $data['categoria'];
         $producto->precio= $data['precio'];
         $producto->minimo= $data['minimo'];
-       
+
         //retorno
         $producto->save();
 
-        return redirect()->route('admin.productos.index');  
+        return redirect()->route('admin.productos.index');
     }
 
     /**
@@ -115,23 +116,23 @@ class ProductoController extends Controller
     {
         $producto->delete();
 
-        return redirect()->route('admin.productos.index');  
+        return redirect()->route('admin.productos.index');
     }
 
-    public function import() 
+    public function import()
     {
         if(request()->file('productos')){
-            
+
         Excel::import(new ProductosImport, request()->file('productos'));
-        
+
         return redirect()->route('admin.productos.index');
 
         } else {
             return redirect()->route('admin.productos.index')->with('error', 'Debe seleccionar un archivo!');
         }
 
-        
-    } 
+
+    }
 
     public function eliminartodos()
     {
@@ -139,5 +140,25 @@ class ProductoController extends Controller
         $productos = DB::table('productos')->delete();
 
         return redirect()->route('admin.productos.index');
+    }
+
+    public function carrito(Request $request, Producto $producto){
+
+        $data = request()->validate([
+            'cantidad'=>'required'
+        ]);
+
+        $categoria = $producto->categoria_id;
+
+        Cart::add([
+            'id' => $producto->id,
+            'name' => $producto->nombre,
+            'qty' => $data['cantidad'] ,
+            'price' => $producto->precio,
+            'weight' =>550,
+            'options["codigo"]' =>  $producto->codigo
+        ]);
+
+        return view('welcome',compact('categoria'));
     }
 }

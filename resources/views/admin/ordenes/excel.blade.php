@@ -16,14 +16,14 @@
             <td>{{$p->price}}</td>
         </tr>
         @endforeach
-    
+
     </tbody>
 </table>
 
 <table>
     <thead>
     <tr>
-        
+
         <th >Cliente</th>
         <th></th>
         <th></th>
@@ -32,13 +32,13 @@
     </tr>
     </thead>
     <tbody>
-       
+
         <tr>
             <td>{{ $ordene->nombre}}</td>
             <td></td>
             <td></td>
             <td>{{$ordene->total}}</td>
         </tr>
-    
+
     </tbody>
 </table>
