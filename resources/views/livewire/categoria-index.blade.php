@@ -17,20 +17,22 @@
                     <td>{{ $categoria->nombre }}</td>
                     <td>
                         <div class="row mx-auto">
-                            <a href="{{ route('admin.categorias.edit', $categoria )}}" class="btn btn-primary mr-2">Editar</a>
-                        
+                            <a href="{{ route('admin.categorias.edit', $categoria )}}" class="btn btn-primary mr-2"><i
+                                class="fas fa-edit"></i></a>
+
                             <form action="{{ route('admin.categorias.destroy', $categoria) }}" method="POST" >
                                 @csrf
                                 @method('DELETE')
-                                <input type="submit" class="btn btn-danger d-inline mr-1  "
-                                    value="Eliminar">
+                                <button type="submit" class="btn btn-danger shadow">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
                             </form>
                         </div>
-                        
+
                     </td>
-                </tr>  
+                </tr>
                 @endforeach
-                
+
             </tbody>
         </table>
         <div class=" mx-auto">

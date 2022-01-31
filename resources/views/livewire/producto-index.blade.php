@@ -43,12 +43,15 @@
                     <td>
                         <div class="row mx-auto">
                             <a href="{{ route('admin.productos.edit', $producto) }}"
-                                class="btn btn-primary mr-2 mb-1 shadow">Editar</a>
+                                class="btn btn-primary mr-2 mb-1 shadow"><i
+                                class="fas fa-edit"></i></a>
 
                             <form action="{{ route('admin.productos.destroy', $producto) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <input type="submit" class="btn btn-danger d-inline mr-1 shadow  " value="Eliminar">
+                                <button type="submit" class="btn btn-danger shadow">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
                             </form>
                         </div>
                     </td>

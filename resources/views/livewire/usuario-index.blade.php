@@ -17,7 +17,7 @@
             <tbody>
                 @foreach ($usuarios as $usuario)
                     <tr>
-                        
+
                         <td>{{ $usuario->name }}</td>
                         <td>{{$usuario->razonSocial}}</td>
                         <td>{{$usuario->cuit}}</td>
@@ -26,18 +26,22 @@
                         <td>{{$usuario->provincia}}</td>
                         <td>{{$usuario->whatsapp}}</td>
                         <td>{{ $usuario->email }}</td>
-                        
-                        
+
+
 
                         <td>
                             <div class="row mx-auto">
-                                <a href="{{ route ('admin.usuarios.edit', $usuario)}}" class="btn btn-primary mr-2 mb-1 shadow">Editar</a>
-                            
+                                <a href="{{ route ('admin.usuarios.edit', $usuario)}}" class="btn btn-primary mr-2 shadow"><i
+                                    class="fas fa-edit"></i></a>
+                                <a href="{{ route('admin.password', $usuario) }}" class="btn btn-warning mr-2 shadow"><i
+                                    class="fas fa-lock text-white"></i></a>
+
                                 <form action="{{ route ('admin.usuarios.destroy', $usuario)}}" method="POST" >
                                     @csrf
                                     @method('DELETE')
-                                    <input type="submit" class="btn btn-danger d-inline mr-1 shadow  "
-                                        value="Eliminar">
+                                    <button type="submit" class="btn btn-danger shadow">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
                                 </form>
                             </div>
                         </td>

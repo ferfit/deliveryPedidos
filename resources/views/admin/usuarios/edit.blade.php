@@ -106,8 +106,8 @@
                     </span>
                 @enderror
             </div>
-            
-            <div class="form-group my-5 mx-2 row">
+
+            {{-- <div class="form-group my-5 mx-2 row">
 
                 <div class=" pr-0 col-11">
                     <label for="password">Password</label>
@@ -125,24 +125,24 @@
                 </div>
 
             </div>
-
+ --}}
             <div class="form-group my-5 mx-2">
                 <label for="tipo">Rol</label>
                 <select name="tipo" id="tipo" class="form-control @error('tipo') is-invalid @enderror" id="tipo">
-                    
+
                     @if ($usuario->tipo == 'franquiciado')
                         <option value="franquiciado" selected>Franquiciado</option>
                         <option value="administrador">Administrador</option>
-                        
+
                     @else
                     <option value="administrador" selected>Administrador</option>
                     <option value="franquiciado" >Franquiciado</option>
-                    
+
                     @endif
-                    
-    
-                        
-                  
+
+
+
+
 
                 </select>
                 @error('tipo')
@@ -150,7 +150,7 @@
                     <strong>{{ $message }}</strong>
                 </span>
                 @enderror
-            </div> 
+            </div>
 
             <div class="form-group ml-3">
                 <input type="submit" class="btn btn-success shadow rounded mt-2" value="Actualizar usuario">

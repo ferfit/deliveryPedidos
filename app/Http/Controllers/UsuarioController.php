@@ -37,8 +37,8 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        
-        
+
+
         $data = request()->validate([
             'nombre'=>'required',
             'razonSocial'=>'required',
@@ -64,7 +64,7 @@ class UsuarioController extends Controller
             'email' => $data['email'],
             'password' => hash::make( $data['password']),
             'tipo' =>$data['tipo']
-            
+
         ]);
 
         return redirect()->route('admin.usuarios.index');
@@ -78,7 +78,7 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
-        
+
     }
 
     /**
@@ -89,7 +89,7 @@ class UsuarioController extends Controller
      */
     public function edit(User $usuario)
     {
-        
+
 
         return view('admin.usuarios.edit',compact('usuario'));
     }
@@ -103,7 +103,7 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, User $usuario)
     {
-        
+
         $data = request()->validate([
             'nombre'=>'required',
             'razonSocial'=>'required',
@@ -113,7 +113,6 @@ class UsuarioController extends Controller
             'provincia'=>'required',
             'whatsapp'=>'required',
             'email'=>'required',
-            'password'=>'required',
             'tipo'=>'required'
         ]);
 
@@ -126,12 +125,12 @@ class UsuarioController extends Controller
         $usuario->provincia= $data['provincia'];
         $usuario->whatsapp = $data['whatsapp'];
         $usuario->email= $data['email'];
-        $usuario->password = Hash::make($data['password']);
+        //$usuario->password = Hash::make($data['password']);
         $usuario->tipo = $data['tipo'];
-        
+
         $usuario->save();
 
-        return redirect()->route('admin.usuarios.index');  
+        return redirect()->route('admin.usuarios.index');
     }
 
     /**
@@ -144,6 +143,28 @@ class UsuarioController extends Controller
     {
         $usuario->delete();
 
-        return redirect()->route('admin.usuarios.index');  
+        return redirect()->route('admin.usuarios.index');
+    }
+
+    public function password(User $usuario){
+        return view('admin.usuarios.password',compact('usuario'));
+    }
+
+    public function updatePassword(Request $request, User $usuario)
+    {
+        //Validación
+        $data = request()->validate([
+            'password' => 'required'
+        ]);
+
+
+        //Actualiza usuario
+        $usuario->password = hash::make( $data['password'])   ;
+        $usuario->save();
+
+        //Redirección
+        return redirect()->route('admin.usuarios.index');
+
+
     }
 }

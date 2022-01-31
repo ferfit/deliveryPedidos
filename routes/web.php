@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Carrito;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\UsuarioController;
+
 
 /*
 |--------------------------------------------------------------------------
