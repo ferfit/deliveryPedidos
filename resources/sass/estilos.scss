@@ -1,6 +1,6 @@
 .cabecera{
     height: 600px;
-    
+
     background-image: url("../../public/img/cabecera.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -11,7 +11,7 @@
     border: 1px solid #a34040;
     border-radius: 5px;
     padding: 3px 0;
-    
+
 }
 
 .boton__whatsapp{
@@ -36,7 +36,7 @@
     //transition: all 500ms;
     //transform: translateX(-180px);
 }
-  
+
 /* .mostrarCarrito {
     transform: translateX(0);
 } */
@@ -52,7 +52,7 @@
   color: #FFF;
   background-color: #D10024;
 }
-  
+
 .valor-carrito {
     display: block;
     text-align: center;
@@ -80,7 +80,7 @@
   font-size: 20px;
   font-weight: 700;
   padding:0 23px;
-  
+
 }
 .carrito__ver-carrito{
   width: 90%;
@@ -110,38 +110,56 @@
    color: #a34040;
 }
 
+.menu-desplegable-enlace{
+    width: 50%;
+}
+
 @media (min-width: 540px) {
-    
-  
+
+
     .carrito {
       width: 8%;
       right: 0%;
     }
-  
-    
+
+
   }
-  
+
   @media (min-width: 768px) {
-    
-  
+
+
     .carrito {
-      
+
       right: 3%;
     }
     .dropdown-menu{
       left: -25px !important;
     }
-  
-    
+
+    .menu-desplegable-enlace{
+        width: 20%;
+    }
+
+    .menu-desplegable{
+        margin: 5px 30px 5px 0;
+        //margin-right: 30px;
+    }
+    .menu-desplegable-cont,
+    .menu-desplegable{
+        width: 760px !important;
+
+    }
+
+
   }
-  
+
   @media (min-width: 1024px) {
     .dropdown-menu{
       left: -40px !important;
     }
-    
+
   }
-  
+
   @media (min-width: 1200px) {
     .carrito {
       width: 4%;
@@ -153,13 +171,13 @@
     .mostrarCarrito {
         transform: translateX(-25px);
     }
-    
-    
+
+
   }
 
   @media (min-width: 1920px) {
     .dropdown-menu{
       left: -60px !important;
     }
-    
+
   }

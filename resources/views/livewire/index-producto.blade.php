@@ -1,5 +1,5 @@
 <div class="mt-5">
-    <div class="row  py-2 rounded">
+    <div class="row  py-2 rounded ">
         <button class="btn btn-dark mx-2 shadow" wire:click="resetFilter">Todos</button>
         <div class="dropdown shadow">
             <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
@@ -7,12 +7,12 @@
                 Categorias
             </button>
 
-            <div class="dropdown-menu shadow" aria-labelledby="dropdownMenuButton">
-                <div class="d-flex flex-wrap w-100">
+            <div class="dropdown-menu shadow menu-desplegable"   aria-labelledby="dropdownMenuButton">
+                <div class="d-flex flex-wrap menu-desplegable-cont">
 
 
                     @foreach ($categorias as $categoria)
-                        <a wire:click="$set('category_id',{{ $categoria->id }})" class="dropdown-item d-block w-50"
+                        <a wire:click="$set('category_id',{{ $categoria->id }})" class="dropdown-item d-block menu-desplegable-enlace"
                             href="#">{{ $categoria->nombre }}</a>
                     @endforeach
                 </div>
@@ -30,7 +30,7 @@
                     <th>Producto</th>
                     <th>Categoria</th>
                     <th>Precio</th>
-                    {{-- <th>Min</th> --}}
+                    <th>Min</th>
                     <th></th>
                 </tr>
             </thead>
@@ -43,7 +43,7 @@
                         <td><span class="bg-dark text-white p-2 rounded">{{ $producto->categoria->nombre }}</span>
                         </td>
                         <td>${{ $producto->precio }}</td>
-                        {{-- <td>10u</td> --}}
+                        <td>{{ $producto->minimo }}</td>
                         <td>
 
 

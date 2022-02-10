@@ -11014,6 +11014,10 @@ a.text-dark:focus {
   color: #a34040;
 }
 
+.menu-desplegable-enlace {
+  width: 50%;
+}
+
 @media (min-width: 540px) {
   .carrito {
     width: 8%;
@@ -11028,6 +11032,19 @@ a.text-dark:focus {
 
   .dropdown-menu {
     left: -25px !important;
+  }
+
+  .menu-desplegable-enlace {
+    width: 20%;
+  }
+
+  .menu-desplegable {
+    margin: 5px 30px 5px 0;
+  }
+
+  .menu-desplegable-cont,
+  .menu-desplegable {
+    width: 760px !important;
   }
 }
 
