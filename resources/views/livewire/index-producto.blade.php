@@ -22,7 +22,7 @@
 
     <input wire:model.defer="search" wire:keydown.enter="render" class="form-control mt-3 w-50" type="search"
         placeholder="Buscar producto por nombre...">
-    <div class="table-responsive container-fluid">
+    <div class="table-responsive p-0 container-fluid">
         <table class="table bg-white mt-2 shadow-sm ">
             <thead>
                 <tr>
