@@ -26,8 +26,8 @@
             <tr>
                 <th>Codigo</th>
                 <th>Nombre</th>
-                <th>Categoria</th>
                 <th >Precio</th>
+                <th>Categoria</th>
                 <th >Min</th>
                 <th>Acciones</th>
             </tr>
@@ -37,8 +37,8 @@
                 <tr>
                     <td>{{ $producto->codigo }}</td>
                     <td>{{ $producto->nombre }}</td>
-                    <td>{{ $producto->categoria->nombre }}</td>
                     <td >${{ $producto->precio }}</td>
+                    <td>{{ $producto->categoria->nombre }}</td>
                     <td >{{ $producto->minimo }}</td>
                     <td>
                         <div class="row mx-auto">

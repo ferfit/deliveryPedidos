@@ -33,8 +33,8 @@
                 <tr>
                     <th>Codigo</th>
                     <th>Producto</th>
-                    <th>Categoria</th>
                     <th>Precio</th>
+                    <th>Categoria</th>
                     <th>Min</th>
                     <th></th>
                 </tr>
@@ -45,9 +45,9 @@
                     <tr>
                         <td>{{ $producto->codigo }}</td>
                         <td>{{ $producto->nombre }}</td>
+                        <td>${{ $producto->precio }}</td>
                         <td><span class="bg-dark text-white p-2 rounded">{{ $producto->categoria->nombre }}</span>
                         </td>
-                        <td>${{ $producto->precio }}</td>
                         <td>{{ $producto->minimo }}</td>
                         <td>
 
