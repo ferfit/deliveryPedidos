@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Producto extends Model
 {
     protected $fillable = [
-        'codigo','nombre','categoria_id','precio','minimo'
+        'codigo','nombre','categoria_id','precio','minimo','activo'
     ];
 
 
@@ -18,7 +18,7 @@ class Producto extends Model
     public function categoria(){
         return $this->belongsTo('App\Models\Categoria');
     }
-    
+
 
     //query scope
     public function scopeCategory($query,$category_id){
@@ -27,5 +27,5 @@ class Producto extends Model
         }
     }
 
-    
+
 }

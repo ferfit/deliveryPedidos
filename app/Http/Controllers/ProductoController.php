@@ -29,7 +29,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        $categorias = Categoria::all();
+        $categorias = Categoria::orderBy('nombre','asc')->get();
         return view('admin.productos.create',compact('categorias'));
     }
 
@@ -49,7 +49,7 @@ class ProductoController extends Controller
             'nombre'=>'required',
             'categoria'=>'required',
             'precio'=>'required',
-            'minimo' => 'required'
+            'minimo' => 'nullable'
         ]);
 
         //almacenamos en bbdd
@@ -58,7 +58,9 @@ class ProductoController extends Controller
             'nombre' => $data['nombre'],
             'categoria_id' => $data['categoria'],
             'precio' => $data['precio'],
-            'minimo' => $data['minimo']
+            'minimo' => $data['minimo'],
+            'estado' => 'activo',
+
 
         ]);
 
@@ -90,7 +92,8 @@ class ProductoController extends Controller
             'nombre'=>'required',
             'categoria'=>'required',
             'precio' =>'required',
-            'minimo' => 'required'
+            'minimo' => 'nullable',
+            'estado' => 'required'
 
         ]);
         //asignamos los valores
@@ -99,6 +102,7 @@ class ProductoController extends Controller
         $producto->categoria_id= $data['categoria'];
         $producto->precio= $data['precio'];
         $producto->minimo= $data['minimo'];
+        $producto->estado= $data['estado'];
 
         //retorno
         $producto->save();

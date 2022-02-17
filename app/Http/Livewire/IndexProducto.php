@@ -56,6 +56,7 @@ class IndexProducto extends Component
 
         return view('livewire.index-producto', [
             'productos' => Producto::where('nombre', 'like', '%'.$this->search.'%')
+                                    ->where('estado','activo')
                                     ->category($this->category_id)
                                     ->orderBy('nombre', 'asc')
                                     //->take(200)

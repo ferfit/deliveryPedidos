@@ -24,9 +24,9 @@ class ProductoIndex extends Component
     public function updatingSearch()
     {
         $this->resetPage();
-    } 
+    }
 
-    
+
 
 
 
@@ -45,11 +45,11 @@ class ProductoIndex extends Component
         return view('livewire.producto-index', [
             'productos' => Producto::where('nombre', 'like', '%'.$this->search.'%')
                                     ->category($this->category_id)
-                                    ->orderBy('id', 'desc') 
+                                    ->orderBy('id', 'desc')
                                     ->paginate(50),
         ],compact('categorias'));
 
-        
+
 
 
     }

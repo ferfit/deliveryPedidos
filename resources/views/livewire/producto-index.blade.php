@@ -34,7 +34,7 @@
         </thead>
         <tbody>
             @foreach ($productos as $producto)
-                <tr>
+                <tr class="@if ($producto->estado == 'inactivo') bg-secondary @endif">
                     <td>{{ $producto->codigo }}</td>
                     <td>{{ $producto->nombre }}</td>
                     <td >${{ $producto->precio }}</td>

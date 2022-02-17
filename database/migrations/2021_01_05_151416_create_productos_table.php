@@ -19,10 +19,10 @@ class CreateProductosTable extends Migration
             $table->string('nombre');
             $table->unsignedBigInteger('categoria_id');
             $table->decimal('precio',10);
-            $table->string('minimo');
-            
-            $table->foreign('categoria_id')->references('id')->on('categorias'); 
-            
+            $table->string('minimo')->nullable();
+            $table->enum('estado', ['activo', 'inactivo']);
+            $table->foreign('categoria_id')->references('id')->on('categorias');
+
             $table->timestamps();
         });
     }

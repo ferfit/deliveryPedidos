@@ -50,9 +50,14 @@ class OrdenController extends Controller
      */
     public function show(Orden $ordene)
     {
-        $productos = json_decode($ordene->listaPedido);
+        $productos = json_decode($ordene->listaPedido,true);
 
-        return view('admin.ordenes.show',compact('ordene','productos'));
+        $productos = collect($productos)->sortBy('name');
+
+        $productos = json_decode($productos);
+
+
+        return view('admin.ordenes.show', compact('ordene', 'productos'));
     }
 
     /**
@@ -63,7 +68,7 @@ class OrdenController extends Controller
      */
     public function edit(Orden $ordene)
     {
-        return view('admin.ordenes.edit',compact('ordene'));
+        return view('admin.ordenes.edit', compact('ordene'));
     }
 
     /**
@@ -77,7 +82,7 @@ class OrdenController extends Controller
     {
         //validamos los datos
         $data = request()->validate([
-            'estado'=>'required',
+            'estado' => 'required',
         ]);
         //asignamos los valores
         $ordene->estado = $data['estado'];
@@ -86,8 +91,7 @@ class OrdenController extends Controller
         $ordene->save();
 
         //retorno
-        return back()->with('estado','Actualización exitosamente!!');
-    
+        return back()->with('estado', 'Actualización exitosamente!!');
     }
 
     /**
@@ -100,10 +104,14 @@ class OrdenController extends Controller
     {
         //
     }
-    public function imprimir(Orden $ordene){
+    public function imprimir(Orden $ordene)
+    {
         /* return $ordene;
         die(); */
         $productos = json_decode($ordene->listaPedido);
-        return Excel::download(new OrdensExport($ordene,$productos), 'orden.xlsx');
+        $productos = collect($productos)->sortBy('name');
+        $productos = json_decode($productos);
+
+        return Excel::download(new OrdensExport($ordene, $productos), 'orden.xlsx');
     }
 }

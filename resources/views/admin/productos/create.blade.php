@@ -3,12 +3,12 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    
 
-    
 
-    
-    
+
+
+
+
 @stop
 
 @section('content')
@@ -26,10 +26,10 @@
             @csrf
             <div class="form-group my-5 mx-2">
                 <label for="codigo">Codigo</label>
-                <input type="text" 
-                name="codigo" 
+                <input type="text"
+                name="codigo"
                 class="form-control w-100 @error('codigo') is-invalid @enderror" id="codigo"
-                    value="">
+                    value="{{old('codigo')}}">
                 @error('codigo')
                 <span class="invalid-feedback d-block" role="alert">
                     <strong>{{ $message }}</strong>
@@ -38,11 +38,11 @@
             </div>
 
             <div class="form-group my-5 mx-2">
-                <label for="titulo">Nombre</label>
-                <input type="text" 
-                name="nombre" 
+                <label for="nombre">Nombre</label>
+                <input type="text"
+                name="nombre"
                 class="form-control w-100 @error('nombre') is-invalid @enderror" id="nombre"
-                    value="">
+                    value="{{old('nombre')}}">
                 @error('nombre')
                 <span class="invalid-feedback d-block" role="alert">
                     <strong>{{ $message }}</strong>
@@ -60,7 +60,7 @@
                         <option value=" {{ $categoria ->id}}">
                             {{ $categoria ->nombre}}
                         </option>
-                    @endforeach 
+                    @endforeach
                 </select>
 
                 @error('categoria')
@@ -68,15 +68,15 @@
                     <strong>{{ $message }}</strong>
                 </span>
                 @enderror
-            </div> 
+            </div>
 
 
             <div class="form-group my-5 mx-2">
                 <label for="precio">Precio</label>
-                <input type="number" 
-                name="precio" 
+                <input type="number"
+                name="precio"
                 class="form-control @error('precio') is-invalid @enderror" id="precio"
-                    value="">
+                    value="{{old('precio')}}">
                 @error('precio')
                 <span class="invalid-feedback d-block" role="alert">
                     <strong>{{ $message }}</strong>
@@ -86,19 +86,19 @@
 
             <div class="form-group my-5 mx-2">
                 <label for="minimo">Mínimo</label>
-                <input type="text" 
-                name="minimo" 
+                <input type="text"
+                name="minimo"
                 class="form-control w-100 @error('minimo') is-invalid @enderror" id="minimo"
-                    value="">
+                    value="{{old('minimo')}}">
                 @error('minimo')
                 <span class="invalid-feedback d-block" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
                 @enderror
             </div>
-        
 
-           
+
+
             <div class="form-group mt-2">
                 <input type="submit" class="btn btn-success shadow rounded " value="Agregar producto">
                 <a href="{{ route('admin.productos.index' )}}" class="btn btn-secondary mr-2">Volver</a>
@@ -108,7 +108,7 @@
     </div>
 
 </div>
-    
+
 
 @stop
 
