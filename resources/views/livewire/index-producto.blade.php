@@ -1,5 +1,10 @@
 <div class="mt-5">
+    <div class="row justify-content-center align-items-center">
+        <h3 class="btn-danger p-2 rounded">"Los precios pueden variar sin previo aviso"</h3 class="btn-danger p-2 rounded">
+    </div>
     <div class="row  py-2 rounded ">
+
+        <br>
         <button class="btn btn-dark mx-2 shadow" wire:click="resetFilter">Todos</button>
         <div class="dropdown shadow">
             <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
