@@ -15,11 +15,11 @@ class ProductosImport implements ToModel
     public function model(array $row)
     {
         Producto::updateOrInsert(
-            [ 'codigo'=>$row[0] ] , 
-            [ 
-                'nombre' => $row[1], 
-                'categoria_id' => $row[2],
-                'precio' => $row[3],
+            [ 'codigo'=>$row[0] ] ,
+            [
+                'nombre' => $row[1],
+                'precio' => $row[2],
+                'categoria_id' => $row[3],
                 'minimo' => $row[4],
             ]);
     }
