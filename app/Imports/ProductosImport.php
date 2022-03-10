@@ -21,6 +21,7 @@ class ProductosImport implements ToModel
                 'precio' => $row[2],
                 'categoria_id' => $row[3],
                 'minimo' => $row[4],
+                'estado' => $row[5],
             ]);
     }
 }
