@@ -25,6 +25,7 @@ Route::put('/usuarios/updatePassword/{usuario}',  [UsuarioController::class,'upd
 
 Route::resource('ordenes', OrdenController::class)->names('ordens')->middleware('soloadmin');
 
+
 Route::get('imprimir/{ordene}', [OrdenController::class, 'imprimir'])->name('imprimir')->middleware('soloadmin');
 
 Route::post('admin/productos/importar/', [ProductoController::class, 'import'])->name('importar')->middleware('soloadmin');

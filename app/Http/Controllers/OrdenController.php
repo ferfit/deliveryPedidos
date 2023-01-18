@@ -114,4 +114,8 @@ class OrdenController extends Controller
 
         return Excel::download(new OrdensExport($ordene, $productos), 'orden.xlsx');
     }
+
+    public function ordenConfirmada(){
+        return view('admin.ordenes.orden-confirmada');
+    }
 }

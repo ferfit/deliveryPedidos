@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\OrdenController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Carrito;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\UsuarioController;
+
 
 
 /*
@@ -41,6 +43,9 @@ Route::get('/storage-link',function(){
 
     return 'directorio creado correctamente.';
 });
+
+
+Route::get('orden-confirmada',[OrdenController::class, 'ordenConfirmada'])->middleware('soloadmin')->name('orden-confirmada');
 
 
 

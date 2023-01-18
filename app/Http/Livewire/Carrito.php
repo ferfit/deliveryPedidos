@@ -13,7 +13,7 @@ class Carrito extends Component
     protected $listeners=['render'];
 
     /* protected $rules = [
-        'nombre' => 'required'        
+        'nombre' => 'required'
     ]; */
 
 
@@ -29,7 +29,7 @@ class Carrito extends Component
 
         $pedido = '';
         $total = Cart::subtotal();
-         
+
 
         foreach(Cart::content() as $item){
             $pedido.=$item->name." Cantidad:".$item->qty." Precio: $".$item->price*$item->qty."%0A";
@@ -38,7 +38,7 @@ class Carrito extends Component
         $pedidoFinal = $pedido."%0A"."TOTAL: $" .$total;
 
         //Creación de la orden
-        
+
         $orden = new Orden();
 
         $orden->nombre = auth()->user()->name;
@@ -51,13 +51,10 @@ class Carrito extends Component
 
 
 
+        Cart::destroy();
 
-        redirect('https://api.whatsapp.com/send?phone=5491141774133&text=|----Pedido----|%0A%0A'
-                .'Franquiciado: '.auth()->user()->name.'%0A'
-                .'Detalle del pedido:'.'%0A'.$pedidoFinal);
-        //return dd($pedidoFinal);
+        return redirect()->route('orden-confirmada');
 
-        Cart::destroy(); 
     }
 
     public function delete($rowId){
@@ -69,7 +66,7 @@ class Carrito extends Component
     public function destroy(){
         Cart::destroy();
     }
-    
+
     public function render()
     {
         return view('livewire.carrito');
